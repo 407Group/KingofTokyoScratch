@@ -31,7 +31,7 @@ public class Turn {
         player = new ArrayList<>();
     }
 
-    //TODO: Add an addplayer function to add to player arraylist
+    // TODO Add an addplayer function to add to player arraylist
 
     // This is the byte array we will write out to the TBMP API.
     public byte[] persist() {
@@ -89,18 +89,19 @@ public class Turn {
             if (obj.has("turnCounter")) {
                 retVal.turnCounter = obj.getInt("turnCounter");
             }
-
-            String playerName = "Player"+Integer.toString(i);
-            if (obj.has(playerName)){
-                JSONObject playerObj = obj.getJSONObject(playerName);
-                if(playerObj.has("heart")){
-                    retVal.player.get(i).updateHealth(obj.getInt("heart"));
-                }
-                if(playerObj.has("vp")){
-                    retVal.player.get(i).updateHealth(obj.getInt("vp"));
-                }
-                if(playerObj.has("energy")){
-                    retVal.player.get(i).updateHealth(obj.getInt("energy"));
+            for (int i = 0; i < obj.length()-2; i++) { // TODO change bound
+                String playerName = "Player" + Integer.toString(i);
+                if (obj.has(playerName)) {
+                    JSONObject playerObj = obj.getJSONObject(playerName);
+                    if (playerObj.has("heart")) {
+                        retVal.player.get(i).updateHealth(obj.getInt("heart"));
+                    }
+                    if (playerObj.has("vp")) {
+                        retVal.player.get(i).updateHealth(obj.getInt("vp"));
+                    }
+                    if (playerObj.has("energy")) {
+                        retVal.player.get(i).updateHealth(obj.getInt("energy"));
+                    }
                 }
             }
         }

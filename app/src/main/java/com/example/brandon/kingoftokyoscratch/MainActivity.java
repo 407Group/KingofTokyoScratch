@@ -328,10 +328,13 @@ public class MainActivity extends Activity
 
         if (isDoingTurn) {
             findViewById(R.id.matchup_layout).setVisibility(View.GONE);
-            findViewById(R.id.gameplay_layout).setVisibility(View.VISIBLE);
+            findViewById(R.id.tokyo).setVisibility(View.VISIBLE);
+//            findViewById(R.id.gameplay_layout).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.matchup_layout).setVisibility(View.VISIBLE);
-            findViewById(R.id.gameplay_layout).setVisibility(View.GONE);
+            findViewById(R.id.tokyo).setVisibility(View.GONE);
+
+//            findViewById(R.id.gameplay_layout).setVisibility(View.GONE);
         }
     }
 

@@ -22,4 +22,37 @@
     <string name="turn_counter">Turn counter</string>
     <string name="signin_other_error">There was an issue with sign in.  Please try again later.</string>
 
+
+    //Copy + paste from my version
+
+    <string name="PlayerHeader">Large Text</string>
+    <string name="healthHeader">Health</string>
+    <string name="VictoryPointsHeader">Vic Pnt</string>
+    <string name="PlayerHeaderName">Player</string>
+    <string name="P1String">P1</string>
+    <string name="P2String">P2</string>
+    <string name="Value0String">0</string>
+    <string name="EnergyHeader">Energy</string>
+    <string name="KeepString">Keep</string>
+    <string name="buttonRollString">Roll!</string>
+    <string name="startRound">Start new Round</string>
+
+    <string name="currentPlayerString">Player x\'s Turn!</string>
+    <string name="player1turn1">Player 1\'s First Roll!</string>
+    <string name="player1turn2">Player 1\'s Second Roll!</string>
+    <string name="player1turn3">Player 1\'s Last Roll!</string>
+    <string name="player2turn1">Player 2\'s First Roll!</string>
+    <string name="player2turn2">Player 2\'s Second Roll!</string>
+    <string name="player2turn3">Player 2\'s Third Roll!</string>
+
+
+    <string name="finishTurn">Finish My Turn</string>
+
+    <string name="outcomeOne">ONE</string>
+    <string name="outcomeTwo">TWO</string>
+    <string name="outcomeThree">THREE</string>
+    <string name="outcomeEnergy">NRGY</string>
+    <string name="outcomeHeal">HEAL</string>
+    <string name="outcomeAttack">ATK!</string>
+
 </resources>

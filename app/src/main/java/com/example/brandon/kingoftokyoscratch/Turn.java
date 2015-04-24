@@ -19,10 +19,8 @@ public class Turn {
 
     public static final String TAG = "EBTurn";
 
-    public String data = "";
-    public int turnCounter;
     ArrayList<Player> players;
-    Dice[] dice = new Dice[6];
+    public Dice[] dice = new Dice[6];
     int curP;   //index of current player
     int tokyoP; //index of player in tokyo
     boolean isTokyoHit; //True means tokyo was attacked this turn
@@ -31,8 +29,8 @@ public class Turn {
         players = new ArrayList<>();
     }
 
-    public void addPlayer(String playerName) {
-        Player tmpPlayer = new Player(playerName);
+    public void addPlayer(String playerName, String playerID) {
+        Player tmpPlayer = new Player(playerName, playerID);
         players.add(tmpPlayer);
     }
 
@@ -48,6 +46,7 @@ public class Turn {
             for(int i = 0; i < players.size(); i++){
                 JSONObject tempVal = new JSONObject();
                 tempVal.put("name",players.get(i).getName());
+                tempVal.put("pid",players.get(i).getPid());
                 tempVal.put("heart",players.get(i).getHealth());
                 tempVal.put("vp", players.get(i).getVictoryPoint());
                 tempVal.put("energy", players.get(i).getEnergy());
@@ -102,9 +101,9 @@ public class Turn {
                 if (obj.has(playerNum)) {
                     JSONObject playerObj = obj.getJSONObject(playerNum);
 
-                    if (playerObj.has("name")) {
+                    if (playerObj.has("name") && playerObj.has("pid")) {
                         //retVal.players.get(i).setName(obj.getString("name"));
-                        retVal.addPlayer("name");
+                        retVal.addPlayer(playerObj.getString("name"),playerObj.getString("pid"));
                     }
                     if (playerObj.has("heart")) {
                         //Log.d("heart",Integer.toString(obj.getInt("heart")));

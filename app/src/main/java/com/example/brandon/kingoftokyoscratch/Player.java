@@ -2,17 +2,19 @@ package com.example.brandon.kingoftokyoscratch;
 
 public class Player {
     private String name;
+    private String pid;
     private int health;
     private int victoryPoint;
     private int energy;
     private boolean inTokyo;
 
-    public Player(String pname) {
-        name = pname;
-        health = 10;
-        victoryPoint = 0;
-        energy = 0;
-        inTokyo = false;
+    public Player(String name, String pid) {
+        this.name = name;
+        this.pid = pid;
+        this.health = 10;
+        this.victoryPoint = 0;
+        this.energy = 0;
+        this.inTokyo = false;
     }
     /*
     public Player(int h, int vp, int e){
@@ -29,9 +31,11 @@ public class Player {
     }
 
     public void updateHealth(int i) {
-        health += i;
-        if(health > 10){
-            health = 10;
+        if(!inTokyo) {
+            health += i;
+            if (health > 10) {
+                health = 10;
+            }
         }
     }
 
@@ -45,6 +49,10 @@ public class Player {
 
     public String getName() {
         return name;
+    }
+
+    public String getPid() {
+        return pid;
     }
 
     public int getHealth() {
@@ -65,6 +73,10 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setPid(String pid) {
+        this.pid = pid;
     }
 
     public void setHealth(int health) {

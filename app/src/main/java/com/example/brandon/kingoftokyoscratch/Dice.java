@@ -8,8 +8,8 @@ import java.util.Random;
  * Dice Class
  */
 public class Dice {
-    int value;
-    String image;
+    private int value;
+    private String image;
 
     public Dice(){
         value = 0;

@@ -1,6 +1,7 @@
 package com.example.brandon.kingoftokyoscratch;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -52,7 +53,8 @@ public class MainActivity extends Activity
         OnInvitationReceivedListener, OnTurnBasedMatchUpdateReceivedListener,
         View.OnClickListener {
 
-    private int rollCounter = 0;
+    private int rollCounter = 0; //number of times we have hit the roll button
+    private int[] dice = new int[6];
 
     public static final String TAG = "MainActivity";
 
@@ -289,8 +291,6 @@ public class MainActivity extends Activity
 
         String nextParticipantId = getNextParticipantId();
         // Create the next turn
-        mTurnData.turnCounter += 1;
-        mTurnData.data = mDataView.getText().toString();
 
         showSpinner();
 
@@ -345,8 +345,8 @@ public class MainActivity extends Activity
     public void setGameplayUI() {
         isDoingTurn = true;
         setViewVisibility();
-        mDataView.setText(mTurnData.data);
-        mTurnTextView.setText("Turn " + mTurnData.turnCounter);
+        /*mDataView.setText(mTurnData.data);
+        mTurnTextView.setText("Turn " + mTurnData.turnCounter);*/
     }
 
     // Helpful dialogs
@@ -489,7 +489,6 @@ public class MainActivity extends Activity
     public void startMatch(TurnBasedMatch match) {
         mTurnData = new Turn();
         // Some basic turn data
-        mTurnData.data = "First turn";
 
         mMatch = match;
 
@@ -498,7 +497,7 @@ public class MainActivity extends Activity
 
         Log.d("parts",Integer.toString(mMatch.getParticipants().size()));
         for(Participant p : mMatch.getParticipants()){
-            mTurnData.addPlayer(p.getDisplayName());
+            mTurnData.addPlayer(p.getDisplayName(),p.getParticipantId());
             Log.d("PartName", p.getDisplayName());
         }
 
@@ -537,7 +536,7 @@ public class MainActivity extends Activity
      * @return participantId of next player, or null if automatching
      */
     public String getNextParticipantId() {
-
+        //TODO tokyo passing maybe
         String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
         String myParticipantId = mMatch.getParticipantId(playerId);
 
@@ -790,7 +789,7 @@ public class MainActivity extends Activity
 
 
                 break;
-            case R.id.buttonRoll:
+            /*case R.id.buttonRoll:
                 TextView[] t = new TextView[6];
                 t[0] = (TextView) findViewById(R.id.die0);
                 t[1] = (TextView) findViewById(R.id.die1);
@@ -802,14 +801,14 @@ public class MainActivity extends Activity
                 for (int i = 0; i < 6; i++) {
 
                     mTurnData.dice[i].roll();
-                    t[i].setText(mTurnData.dice[i].image);
-                }
+                    t[i].setText(mTurnData.dice[i].getImage());
+                }*/
         }
     }
 
-    //Everything before this came from skeletonTBMP
-    /*
-    public void rollDice(View view) {
+    //Below this was not modified from SkeletonTBMP
+
+    public void rollDice() {
         TextView[] t = new TextView[6];
         t[0] = (TextView) findViewById(R.id.die0);
         t[1] = (TextView) findViewById(R.id.die1);
@@ -819,14 +818,143 @@ public class MainActivity extends Activity
         t[5] = (TextView) findViewById(R.id.die5);
 
         for (int i = 0; i < 6; i++) {
+            //mTurnData.dice[i].roll();
+            Random rn = new Random();
+            int r = rn.nextInt(6);
+            String image = "";
 
-            mTurnData.dice[i].roll();
-            t[i].setText(mTurnData.dice[i].image);
+            dice[i] = r;
+
+            switch (r) {
+
+                case 0:
+                    image = "Energy";
+                    break;
+                case 1:
+                    image = "1";
+                    break;
+                case 2:
+                    image = "2";
+                    break;
+                case 3:
+                    image = "3";
+                    break;
+                case 4:
+                    image = "Claw";
+                    break;
+                case 5:
+                    image = "Heart";
+                    break;
+
+            }
+            t[i].setText(image);
         }
+
+
     }
-    */
-    public void rollDice(View view){
-        
-        onDoneClicked(view);
+
+    public void generalButtonClicked(View view){
+        switch (rollCounter){
+            case 0:
+                rollDice();
+                break;
+            case 1:
+                rollDice();
+                break;
+            case 2:
+                rollDice();
+                resolveDice();
+                break;
+            case 3:
+                onDoneClicked(view);
+                break;
+        }
+        rollCounter++;
+    }
+
+    public void resolveDice(){
+        int numHearts = 0;
+        int numEnergy = 0;
+        int numClaws = 0;
+        int numOf1 = 0;
+        int numOf2 = 0;
+        int numOf3 = 0;
+        int vp = 0;
+
+        for (int i = 0; i < 6; i++){
+            switch (dice[i]) {
+                case 0: numEnergy++;
+                    break;
+                case 1:  numOf1++;
+                    break;
+                case 2:  numOf2++;
+                    break;
+                case 3:  numOf3++;
+                    break;
+                case 4:  numClaws++;
+                    break;
+                case 5:  numHearts++;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        if(numOf1 >= 3){
+            numOf1 -= 3;
+            vp = vp + 1 + numOf1;
+        }
+        if(numOf2 >= 3){
+            numOf2 -= 3;
+            vp = vp + 2 + numOf2;
+        }
+        if(numOf3 >= 3){
+            numOf3 -= 3;
+            vp = vp + 3 + numOf3;
+        }
+
+        int curP = -1;
+
+        //update current player's stats
+        //TODO: Remove and replace with update all stats
+        for (int i = 0; i < mTurnData.players.size(); i++){
+            String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
+            String myParticipantId = mMatch.getParticipantId(playerId);
+//            Log.d("pid", mMatch.getParticipantId(playerId));
+//            Log.d("pid",mTurnData.players.get(i).getPid());
+            if(mTurnData.players.get(i).getPid().equals(myParticipantId)){
+                curP = i;
+            }
+        }
+        mTurnData.players.get(curP).updateVictoryPoint(vp);
+        mTurnData.players.get(curP).updateEnergy(numEnergy);
+        mTurnData.players.get(curP).updateHealth(numHearts);
+
+        //attack another player or take tokyo
+        if(numClaws > 0){
+
+            boolean tokyoFull = false;
+            int tokyoID = -1;
+            for (int i = 0; i < mTurnData.players.size(); i++){
+                if (mTurnData.players.get(i).getInTokyo()){
+                    tokyoFull = true;
+                    tokyoID = i;
+                }
+            }
+
+            if(!tokyoFull){ //tokyo is empty
+                mTurnData.players.get(curP).setInTokyo(true);
+            }
+            else if(!mTurnData.players.get(curP).getInTokyo()){ //current player not in tokyo
+                mTurnData.players.get(tokyoID).takeDamage(numClaws);
+            }
+            else { //current player is in tokyo
+                for(Player p : mTurnData.players){
+                    if(p.getInTokyo()){
+                        p.takeDamage(numClaws);
+                    }
+                }
+            }
+        }
     }
 }

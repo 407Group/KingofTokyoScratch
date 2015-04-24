@@ -21,14 +21,19 @@ public class Turn {
 
     public String data = "";
     public int turnCounter;
-    ArrayList<Player> player;
+    ArrayList<Player> players;
     Dice[] dice = new Dice[6];
     int curP;   //index of current player
     int tokyoP; //index of player in tokyo
     boolean isTokyoHit; //True means tokyo was attacked this turn
 
     public Turn() {
-        player = new ArrayList<>();
+        players = new ArrayList<>();
+    }
+
+    public void addPlayer(String playerName) {
+        Player tmpPlayer = new Player(playerName);
+        players.add(tmpPlayer);
     }
 
     // TODO Add an addplayer function to add to player arraylist
@@ -38,13 +43,15 @@ public class Turn {
         JSONObject retVal = new JSONObject();
 
         try {
-            retVal.put("data", data);
-            retVal.put("turnCounter", turnCounter);
-            for(int i = 0; i < player.size(); i++){
+            //retVal.put("data", data);
+            //retVal.put("turnCounter", turnCounter);
+            for(int i = 0; i < players.size(); i++){
                 JSONObject tempVal = new JSONObject();
-                tempVal.put("heart",player.get(i).getHealth());
-                tempVal.put("vp", player.get(i).getVictoryPoint());
-                tempVal.put("energy", player.get(i).getEnergy());
+                tempVal.put("name",players.get(i).getName());
+                tempVal.put("heart",players.get(i).getHealth());
+                tempVal.put("vp", players.get(i).getVictoryPoint());
+                tempVal.put("energy", players.get(i).getEnergy());
+                tempVal.put("inTokyo", players.get(i).getInTokyo());
                 retVal.put("Player"+Integer.toString(i),tempVal);
             }
 
@@ -83,24 +90,32 @@ public class Turn {
         try {
             JSONObject obj = new JSONObject(st);
 
-            if (obj.has("data")) {
+            /*if (obj.has("data")) {
                 retVal.data = obj.getString("data");
             }
             if (obj.has("turnCounter")) {
                 retVal.turnCounter = obj.getInt("turnCounter");
-            }
-            for (int i = 0; i < obj.length()-2; i++) { // TODO change bound
+            }*/
+            for (int i = 0; i < obj.length(); i++) { // TODO change bound
                 String playerName = "Player" + Integer.toString(i);
                 if (obj.has(playerName)) {
                     JSONObject playerObj = obj.getJSONObject(playerName);
+
+                    if (playerObj.has("name")) {
+                        //retVal.players.get(i).setName(obj.getString("name"));
+                        retVal.addPlayer("name");
+                    }
                     if (playerObj.has("heart")) {
-                        retVal.player.get(i).updateHealth(obj.getInt("heart"));
+                        retVal.players.get(i).setHealth(obj.getInt("heart"));
                     }
                     if (playerObj.has("vp")) {
-                        retVal.player.get(i).updateHealth(obj.getInt("vp"));
+                        retVal.players.get(i).setVictoryPoint(obj.getInt("vp"));
                     }
                     if (playerObj.has("energy")) {
-                        retVal.player.get(i).updateHealth(obj.getInt("energy"));
+                        retVal.players.get(i).setEnergy(obj.getInt("energy"));
+                    }
+                    if (playerObj.has("inTokyo")) {
+                        retVal.players.get(i).setInTokyo(obj.getBoolean("inTokyo"));
                     }
                 }
             }
@@ -156,10 +171,10 @@ public class Turn {
 
         //update current player's stats
         //TODO: Remove and replace with update all stats
-        player.get(curP).updateVictoryPoint(vp);
-        player.get(curP).updateEnergy(numEnergy);
+        players.get(curP).updateVictoryPoint(vp);
+        players.get(curP).updateEnergy(numEnergy);
         if(curP != tokyoP) {
-            player.get(curP).updateHealth(numHearts);
+            players.get(curP).updateHealth(numHearts);
         }
 
         //attack another player or take tokyo
@@ -168,12 +183,12 @@ public class Turn {
                 tokyoP = curP;
             }
             else if(curP != tokyoP){ //current player not in tokyo
-                player.get(tokyoP).takeDamage(numClaws);
+                players.get(tokyoP).takeDamage(numClaws);
             }
             else { //current player is in tokyo
-                for(int i = 0; i < player.size(); i++){
+                for(int i = 0; i < players.size(); i++){
                     if(tokyoP != i){
-                        player.get(i).takeDamage(numClaws);
+                        players.get(i).takeDamage(numClaws);
                     }
                 }
             }

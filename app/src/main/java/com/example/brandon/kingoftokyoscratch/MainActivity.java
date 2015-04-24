@@ -19,6 +19,7 @@ import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.multiplayer.Invitation;
 import com.google.android.gms.games.multiplayer.OnInvitationReceivedListener;
+import com.google.android.gms.games.multiplayer.Participant;
 import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
 import com.google.android.gms.games.multiplayer.turnbased.OnTurnBasedMatchUpdateReceivedListener;
 import com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatch;
@@ -204,7 +205,7 @@ public class MainActivity extends Activity
     // and figure out what to do.
     public void onStartMatchClicked(View view) {
         Intent intent = Games.TurnBasedMultiplayer.getSelectOpponentsIntent(mGoogleApiClient,
-                1, 7, true);
+                1, 3, true);
         startActivityForResult(intent, RC_SELECT_PLAYERS);
     }
 
@@ -493,6 +494,12 @@ public class MainActivity extends Activity
         String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
         String myParticipantId = mMatch.getParticipantId(playerId);
 
+        Log.d("parts",Integer.toString(mMatch.getParticipants().size()));
+        for(Participant p : mMatch.getParticipants()){
+            mTurnData.addPlayer(p.getDisplayName());
+            Log.d("PartName", p.getDisplayName());
+        }
+
         showSpinner();
 
         Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, match.getMatchId(),
@@ -778,7 +785,42 @@ public class MainActivity extends Activity
                     mGoogleApiClient.disconnect();
                 }
                 setViewVisibility();
+
+
                 break;
+            case R.id.buttonRoll:
+                TextView[] t = new TextView[6];
+                t[0] = (TextView) findViewById(R.id.die0);
+                t[1] = (TextView) findViewById(R.id.die1);
+                t[2] = (TextView) findViewById(R.id.die2);
+                t[3] = (TextView) findViewById(R.id.die3);
+                t[4] = (TextView) findViewById(R.id.die4);
+                t[5] = (TextView) findViewById(R.id.die5);
+
+                for (int i = 0; i < 6; i++) {
+
+                    mTurnData.dice[i].roll();
+                    t[i].setText(mTurnData.dice[i].image);
+                }
         }
     }
+
+    //Everything before this came from skeletonTBMP
+    /*
+    public void rollDice(View view) {
+        TextView[] t = new TextView[6];
+        t[0] = (TextView) findViewById(R.id.die0);
+        t[1] = (TextView) findViewById(R.id.die1);
+        t[2] = (TextView) findViewById(R.id.die2);
+        t[3] = (TextView) findViewById(R.id.die3);
+        t[4] = (TextView) findViewById(R.id.die4);
+        t[5] = (TextView) findViewById(R.id.die5);
+
+        for (int i = 0; i < 6; i++) {
+
+            mTurnData.dice[i].roll();
+            t[i].setText(mTurnData.dice[i].image);
+        }
+    }
+    */
 }

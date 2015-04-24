@@ -421,7 +421,6 @@
         <TextView
             android:layout_width="50dp"
             android:layout_height="30dp"
-            android:onClick="rollDice"
             android:text="@string/buttonRollString"
             android:id="@+id/die3"
             android:layout_row="6"
@@ -484,8 +483,8 @@
             android:id="@+id/buttonRoll"
             android:layout_row="6"
             android:layout_column="3"
-            android:layout_rowSpan="2" />
-            <!--android:onClick="rollDice"-->
+            android:layout_rowSpan="2"
+            android:onClick="rollDice" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

@@ -96,26 +96,28 @@ public class Turn {
             if (obj.has("turnCounter")) {
                 retVal.turnCounter = obj.getInt("turnCounter");
             }*/
+            //Log.d("length",Integer.toString(obj.length()));
             for (int i = 0; i < obj.length(); i++) { // TODO change bound
-                String playerName = "Player" + Integer.toString(i);
-                if (obj.has(playerName)) {
-                    JSONObject playerObj = obj.getJSONObject(playerName);
+                String playerNum = "Player" + Integer.toString(i);
+                if (obj.has(playerNum)) {
+                    JSONObject playerObj = obj.getJSONObject(playerNum);
 
                     if (playerObj.has("name")) {
                         //retVal.players.get(i).setName(obj.getString("name"));
                         retVal.addPlayer("name");
                     }
                     if (playerObj.has("heart")) {
-                        retVal.players.get(i).setHealth(obj.getInt("heart"));
+                        //Log.d("heart",Integer.toString(obj.getInt("heart")));
+                        retVal.players.get(i).setHealth(playerObj.getInt("heart"));
                     }
                     if (playerObj.has("vp")) {
-                        retVal.players.get(i).setVictoryPoint(obj.getInt("vp"));
+                        retVal.players.get(i).setVictoryPoint(playerObj.getInt("vp"));
                     }
                     if (playerObj.has("energy")) {
-                        retVal.players.get(i).setEnergy(obj.getInt("energy"));
+                        retVal.players.get(i).setEnergy(playerObj.getInt("energy"));
                     }
                     if (playerObj.has("inTokyo")) {
-                        retVal.players.get(i).setInTokyo(obj.getBoolean("inTokyo"));
+                        retVal.players.get(i).setInTokyo(playerObj.getBoolean("inTokyo"));
                     }
                 }
             }

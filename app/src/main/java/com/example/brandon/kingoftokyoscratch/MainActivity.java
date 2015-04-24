@@ -52,6 +52,8 @@ public class MainActivity extends Activity
         OnInvitationReceivedListener, OnTurnBasedMatchUpdateReceivedListener,
         View.OnClickListener {
 
+    private int rollCounter = 0;
+
     public static final String TAG = "MainActivity";
 
     // Client used to interact with Google APIs
@@ -823,4 +825,8 @@ public class MainActivity extends Activity
         }
     }
     */
+    public void rollDice(View view){
+        
+        onDoneClicked(view);
+    }
 }

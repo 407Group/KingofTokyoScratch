@@ -27,29 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0060f155-c123-4cb4-87b2-27d105ac657b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_22_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_ads_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_ads_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_analytics_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_appindexing_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_appindexing_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_fitness_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_fitness_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_games_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_games_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_gcm_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_gcm_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_identity_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_identity_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_location_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_location_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_plus_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_plus_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_safetynet_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_safetynet_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_7_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="King of Tokyo Scratch.iws" />
@@ -73,39 +53,39 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.571428" vertical-offset="7983" max-vertical-offset="13923">
-              <caret line="499" column="50" selection-start-line="499" selection-start-column="50" selection-end-line="499" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.42045453" vertical-offset="13761" max-vertical-offset="14025">
+              <caret line="828" column="8" selection-start-line="828" selection-start-column="8" selection-end-line="828" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#8618#8851#0" expanded="true" />
-                <element signature="e#8840#8841#0" expanded="true" />
-                <element signature="e#9277#9546#0" expanded="true" />
-                <element signature="e#9527#9528#0" expanded="true" />
-                <element signature="e#10062#10329#0" expanded="true" />
-                <element signature="e#10310#10311#0" expanded="true" />
-                <element signature="e#10618#10887#0" expanded="true" />
-                <element signature="e#10868#10869#0" expanded="true" />
-                <element signature="e#11501#11770#0" expanded="true" />
-                <element signature="e#11751#11752#0" expanded="true" />
-                <element signature="e#17861#18154#0" expanded="true" />
-                <element signature="e#18131#18132#0" expanded="true" />
-                <element signature="e#19318#19587#0" expanded="true" />
-                <element signature="e#19568#19569#0" expanded="true" />
-                <element signature="e#19836#20109#0" expanded="true" />
-                <element signature="e#20090#20091#0" expanded="true" />
+                <element signature="e#8652#8885#0" expanded="true" />
+                <element signature="e#8874#8875#0" expanded="true" />
+                <element signature="e#9311#9580#0" expanded="true" />
+                <element signature="e#9561#9562#0" expanded="true" />
+                <element signature="e#10096#10363#0" expanded="true" />
+                <element signature="e#10344#10345#0" expanded="true" />
+                <element signature="e#10652#10921#0" expanded="true" />
+                <element signature="e#10902#10903#0" expanded="true" />
+                <element signature="e#11535#11804#0" expanded="true" />
+                <element signature="e#11785#11786#0" expanded="true" />
+                <element signature="e#17895#18188#0" expanded="true" />
+                <element signature="e#18165#18166#0" expanded="true" />
+                <element signature="e#19352#19621#0" expanded="true" />
+                <element signature="e#19602#19603#0" expanded="true" />
+                <element signature="e#19870#20143#0" expanded="true" />
+                <element signature="e#20124#20125#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Turn.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Turn.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3327371" vertical-offset="1357" max-vertical-offset="3281">
-              <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="3315">
+              <caret line="100" column="66" selection-start-line="100" selection-start-column="66" selection-end-line="100" selection-end-column="66" />
               <folding />
             </state>
           </provider>
@@ -117,10 +97,21 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.5636363" vertical-offset="1453" max-vertical-offset="8585">
-              <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
+            <state vertical-scroll-proportion="-2.7454545" vertical-offset="8111" max-vertical-offset="8568">
+              <caret line="486" column="37" selection-start-line="486" selection-start-column="37" selection-end-line="486" selection-end-column="37" />
               <folding>
-                <element signature="e#18927#18947#0" expanded="true" />
+                <element signature="e#10171#10193#0" expanded="true" />
+                <element signature="e#13422#13444#0" expanded="true" />
+                <element signature="e#13895#13921#0" expanded="true" />
+                <element signature="e#14377#14403#0" expanded="true" />
+                <element signature="e#14859#14885#0" expanded="true" />
+                <element signature="e#16056#16076#0" expanded="true" />
+                <element signature="e#16316#16342#0" expanded="true" />
+                <element signature="e#17188#17208#0" expanded="true" />
+                <element signature="e#17447#17473#0" expanded="true" />
+                <element signature="e#17929#17955#0" expanded="true" />
+                <element signature="e#18469#18495#0" expanded="true" />
+                <element signature="e#18881#18901#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -1802,10 +1793,10 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/ids.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Dice.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" />
       </list>
     </option>
   </component>
@@ -1851,7 +1842,7 @@
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../NeoTokyo2" />
-    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="8d512719" />
+    <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_SERIALS" value="YT910WWTMW" />
     <property name="ANDROID_EXTENDED_DEVICE_CHOOSER_AVD" value="Nexus_5_API_21_x86" />
   </component>
   <component name="RunManager" selected="Android Application.app">
@@ -2045,7 +2036,7 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32688928" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.8245315" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4548552" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2121,22 +2112,22 @@
           <caret line="334" column="35" selection-start-line="334" selection-start-column="35" selection-end-line="334" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8618#8851#0" expanded="true" />
-            <element signature="e#8840#8841#0" expanded="true" />
-            <element signature="e#9277#9546#0" expanded="true" />
-            <element signature="e#9527#9528#0" expanded="true" />
-            <element signature="e#10062#10329#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10618#10887#0" expanded="true" />
-            <element signature="e#10868#10869#0" expanded="true" />
-            <element signature="e#11501#11770#0" expanded="true" />
-            <element signature="e#11751#11752#0" expanded="true" />
-            <element signature="e#17861#18154#0" expanded="true" />
-            <element signature="e#18131#18132#0" expanded="true" />
-            <element signature="e#19318#19587#0" expanded="true" />
-            <element signature="e#19568#19569#0" expanded="true" />
-            <element signature="e#19836#20109#0" expanded="true" />
-            <element signature="e#20090#20091#0" expanded="true" />
+            <element signature="e#8652#8885#0" expanded="true" />
+            <element signature="e#8874#8875#0" expanded="true" />
+            <element signature="e#9311#9580#0" expanded="true" />
+            <element signature="e#9561#9562#0" expanded="true" />
+            <element signature="e#10096#10363#0" expanded="true" />
+            <element signature="e#10344#10345#0" expanded="true" />
+            <element signature="e#10652#10921#0" expanded="true" />
+            <element signature="e#10902#10903#0" expanded="true" />
+            <element signature="e#11535#11804#0" expanded="true" />
+            <element signature="e#11785#11786#0" expanded="true" />
+            <element signature="e#17895#18188#0" expanded="true" />
+            <element signature="e#18165#18166#0" expanded="true" />
+            <element signature="e#19352#19621#0" expanded="true" />
+            <element signature="e#19602#19603#0" expanded="true" />
+            <element signature="e#19870#20143#0" expanded="true" />
+            <element signature="e#20124#20125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2157,7 +2148,18 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="3553" max-vertical-offset="8568">
           <caret line="209" column="39" selection-start-line="209" selection-start-column="39" selection-end-line="209" selection-end-column="39" />
           <folding>
-            <element signature="e#18927#18947#0" expanded="true" />
+            <element signature="e#10171#10193#0" expanded="true" />
+            <element signature="e#13422#13444#0" expanded="true" />
+            <element signature="e#13895#13921#0" expanded="true" />
+            <element signature="e#14377#14403#0" expanded="true" />
+            <element signature="e#14859#14885#0" expanded="true" />
+            <element signature="e#16056#16076#0" expanded="true" />
+            <element signature="e#16316#16342#0" expanded="true" />
+            <element signature="e#17188#17208#0" expanded="true" />
+            <element signature="e#17447#17473#0" expanded="true" />
+            <element signature="e#17929#17955#0" expanded="true" />
+            <element signature="e#18469#18495#0" expanded="true" />
+            <element signature="e#18881#18901#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2217,22 +2219,22 @@
           <caret line="687" column="73" selection-start-line="687" selection-start-column="73" selection-end-line="687" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8618#8851#0" expanded="true" />
-            <element signature="e#8840#8841#0" expanded="true" />
-            <element signature="e#9277#9546#0" expanded="true" />
-            <element signature="e#9527#9528#0" expanded="true" />
-            <element signature="e#10062#10329#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10618#10887#0" expanded="true" />
-            <element signature="e#10868#10869#0" expanded="true" />
-            <element signature="e#11501#11770#0" expanded="true" />
-            <element signature="e#11751#11752#0" expanded="true" />
-            <element signature="e#17861#18154#0" expanded="true" />
-            <element signature="e#18131#18132#0" expanded="true" />
-            <element signature="e#19318#19587#0" expanded="true" />
-            <element signature="e#19568#19569#0" expanded="true" />
-            <element signature="e#19836#20109#0" expanded="true" />
-            <element signature="e#20090#20091#0" expanded="true" />
+            <element signature="e#8652#8885#0" expanded="true" />
+            <element signature="e#8874#8875#0" expanded="true" />
+            <element signature="e#9311#9580#0" expanded="true" />
+            <element signature="e#9561#9562#0" expanded="true" />
+            <element signature="e#10096#10363#0" expanded="true" />
+            <element signature="e#10344#10345#0" expanded="true" />
+            <element signature="e#10652#10921#0" expanded="true" />
+            <element signature="e#10902#10903#0" expanded="true" />
+            <element signature="e#11535#11804#0" expanded="true" />
+            <element signature="e#11785#11786#0" expanded="true" />
+            <element signature="e#17895#18188#0" expanded="true" />
+            <element signature="e#18165#18166#0" expanded="true" />
+            <element signature="e#19352#19621#0" expanded="true" />
+            <element signature="e#19602#19603#0" expanded="true" />
+            <element signature="e#19870#20143#0" expanded="true" />
+            <element signature="e#20124#20125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2292,22 +2294,22 @@
           <caret line="687" column="73" selection-start-line="687" selection-start-column="73" selection-end-line="687" selection-end-column="73" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#8618#8851#0" expanded="true" />
-            <element signature="e#8840#8841#0" expanded="true" />
-            <element signature="e#9277#9546#0" expanded="true" />
-            <element signature="e#9527#9528#0" expanded="true" />
-            <element signature="e#10062#10329#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10618#10887#0" expanded="true" />
-            <element signature="e#10868#10869#0" expanded="true" />
-            <element signature="e#11501#11770#0" expanded="true" />
-            <element signature="e#11751#11752#0" expanded="true" />
-            <element signature="e#17861#18154#0" expanded="true" />
-            <element signature="e#18131#18132#0" expanded="true" />
-            <element signature="e#19318#19587#0" expanded="true" />
-            <element signature="e#19568#19569#0" expanded="true" />
-            <element signature="e#19836#20109#0" expanded="true" />
-            <element signature="e#20090#20091#0" expanded="true" />
+            <element signature="e#8652#8885#0" expanded="true" />
+            <element signature="e#8874#8875#0" expanded="true" />
+            <element signature="e#9311#9580#0" expanded="true" />
+            <element signature="e#9561#9562#0" expanded="true" />
+            <element signature="e#10096#10363#0" expanded="true" />
+            <element signature="e#10344#10345#0" expanded="true" />
+            <element signature="e#10652#10921#0" expanded="true" />
+            <element signature="e#10902#10903#0" expanded="true" />
+            <element signature="e#11535#11804#0" expanded="true" />
+            <element signature="e#11785#11786#0" expanded="true" />
+            <element signature="e#17895#18188#0" expanded="true" />
+            <element signature="e#18165#18166#0" expanded="true" />
+            <element signature="e#19352#19621#0" expanded="true" />
+            <element signature="e#19602#19603#0" expanded="true" />
+            <element signature="e#19870#20143#0" expanded="true" />
+            <element signature="e#20124#20125#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2411,50 +2413,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.5636363" vertical-offset="1453" max-vertical-offset="8585">
-          <caret line="97" column="19" selection-start-line="97" selection-start-column="19" selection-end-line="97" selection-end-column="19" />
-          <folding>
-            <element signature="e#18927#18947#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Dice.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1088">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.571428" vertical-offset="7983" max-vertical-offset="13923">
-          <caret line="499" column="50" selection-start-line="499" selection-start-column="50" selection-end-line="499" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#8618#8851#0" expanded="true" />
-            <element signature="e#8840#8841#0" expanded="true" />
-            <element signature="e#9277#9546#0" expanded="true" />
-            <element signature="e#9527#9528#0" expanded="true" />
-            <element signature="e#10062#10329#0" expanded="true" />
-            <element signature="e#10310#10311#0" expanded="true" />
-            <element signature="e#10618#10887#0" expanded="true" />
-            <element signature="e#10868#10869#0" expanded="true" />
-            <element signature="e#11501#11770#0" expanded="true" />
-            <element signature="e#11751#11752#0" expanded="true" />
-            <element signature="e#17861#18154#0" expanded="true" />
-            <element signature="e#18131#18132#0" expanded="true" />
-            <element signature="e#19318#19587#0" expanded="true" />
-            <element signature="e#19568#19569#0" expanded="true" />
-            <element signature="e#19836#20109#0" expanded="true" />
-            <element signature="e#20090#20091#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -2493,9 +2456,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3327371" vertical-offset="1357" max-vertical-offset="3281">
-          <caret line="45" column="39" selection-start-line="45" selection-start-column="39" selection-end-line="45" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1425" max-vertical-offset="3315">
+          <caret line="100" column="66" selection-start-line="100" selection-start-column="66" selection-end-line="100" selection-end-column="66" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.7454545" vertical-offset="8111" max-vertical-offset="8568">
+          <caret line="486" column="37" selection-start-line="486" selection-start-column="37" selection-end-line="486" selection-end-column="37" />
+          <folding>
+            <element signature="e#10171#10193#0" expanded="true" />
+            <element signature="e#13422#13444#0" expanded="true" />
+            <element signature="e#13895#13921#0" expanded="true" />
+            <element signature="e#14377#14403#0" expanded="true" />
+            <element signature="e#14859#14885#0" expanded="true" />
+            <element signature="e#16056#16076#0" expanded="true" />
+            <element signature="e#16316#16342#0" expanded="true" />
+            <element signature="e#17188#17208#0" expanded="true" />
+            <element signature="e#17447#17473#0" expanded="true" />
+            <element signature="e#17929#17955#0" expanded="true" />
+            <element signature="e#18469#18495#0" expanded="true" />
+            <element signature="e#18881#18901#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.42045453" vertical-offset="13761" max-vertical-offset="14025">
+          <caret line="828" column="8" selection-start-line="828" selection-start-column="8" selection-end-line="828" selection-end-column="8" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#8652#8885#0" expanded="true" />
+            <element signature="e#8874#8875#0" expanded="true" />
+            <element signature="e#9311#9580#0" expanded="true" />
+            <element signature="e#9561#9562#0" expanded="true" />
+            <element signature="e#10096#10363#0" expanded="true" />
+            <element signature="e#10344#10345#0" expanded="true" />
+            <element signature="e#10652#10921#0" expanded="true" />
+            <element signature="e#10902#10903#0" expanded="true" />
+            <element signature="e#11535#11804#0" expanded="true" />
+            <element signature="e#11785#11786#0" expanded="true" />
+            <element signature="e#17895#18188#0" expanded="true" />
+            <element signature="e#18165#18166#0" expanded="true" />
+            <element signature="e#19352#19621#0" expanded="true" />
+            <element signature="e#19602#19603#0" expanded="true" />
+            <element signature="e#19870#20143#0" expanded="true" />
+            <element signature="e#20124#20125#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -76,7 +76,7 @@
             android:gravity="center"
             android:inputType="textEmailAddress|textEmailSubject"
             android:maxLines="1"
-            android:text="@string/hello_world"
+            android:text=""
             android:textAppearance="@style/GuessWordText" />
 
         <LinearLayout
@@ -491,7 +491,7 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="119dp"
             android:layout_height="wrap_content"
-            android:text="@string/buttonRollString"
+            android:text="@string/firstRoll"
             android:id="@+id/buttonRoll"
             android:layout_row="6"
             android:layout_column="3"

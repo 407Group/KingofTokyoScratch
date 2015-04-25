@@ -11,6 +11,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -811,17 +812,9 @@ public class MainActivity extends Activity
         }
     }
 
-    //Below this was not modified from SkeletonTBMP
+    //Below this was not modified from SkeletonTBMP and is original code
 
     public void rollDice() {
-//        TextView[] t = new TextView[6];
-//        t[0] = (TextView) findViewById(R.id.die0);
-//        t[1] = (TextView) findViewById(R.id.die1);
-//        t[2] = (TextView) findViewById(R.id.die2);
-//        t[3] = (TextView) findViewById(R.id.die3);
-//        t[4] = (TextView) findViewById(R.id.die4);
-//        t[5] = (TextView) findViewById(R.id.die5);
-
         for (int i = 0; i < 6; i++) {
             if (!keptDice[i]) {
                 Random rn = new Random();
@@ -861,18 +854,22 @@ public class MainActivity extends Activity
         switch (rollCounter){
             case 0:
                 rollDice();
+                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.secondRoll);
                 break;
             case 1:
                 rollDice();
+                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.thirdRoll);
                 break;
             case 2:
                 rollDice();
                 resolveDice();
                 updateStats();
                 resetKeptDice();
+                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
                 break;
             case 3:
                 onDoneClicked(view);
+                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll);
                 break;
         }
         rollCounter++;
@@ -969,19 +966,33 @@ public class MainActivity extends Activity
 
     public void updateStats(){
         Player tempPlayer = mTurnData.players.get(0);
+        ((TextView)findViewById(R.id.name0)).setText(tempPlayer.getName());
         ((TextView)findViewById(R.id.heart0)).setText(Integer.toString(tempPlayer.getHealth()));
         ((TextView)findViewById(R.id.vp0)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
         ((TextView)findViewById(R.id.energy0)).setText(Integer.toString(tempPlayer.getEnergy()));
 
         tempPlayer = mTurnData.players.get(1);
+        ((TextView)findViewById(R.id.name1)).setText(tempPlayer.getName());
         ((TextView)findViewById(R.id.heart1)).setText(Integer.toString(tempPlayer.getHealth()));
         ((TextView)findViewById(R.id.vp1)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
         ((TextView)findViewById(R.id.energy1)).setText(Integer.toString(tempPlayer.getEnergy()));
 
-        /*tempPlayer = turnData.player.get(2);
-        ((TextView)findViewById(R.id.heart2)).setText(Integer.toString(tempPlayer.getHealth()));
-        ((TextView)findViewById(R.id.vp2)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
-        ((TextView)findViewById(R.id.energy2)).setText(Integer.toString(tempPlayer.getEnergy()));*/
+//        if(mTurnData.players.size() > 2) {
+//            tempPlayer = mTurnData.players.get(2);
+//            ((TextView)findViewById(R.id.name2)).setText(tempPlayer.getName());
+//            ((TextView) findViewById(R.id.heart2)).setText(Integer.toString(tempPlayer.getHealth()));
+//            ((TextView) findViewById(R.id.vp2)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+//            ((TextView) findViewById(R.id.energy2)).setText(Integer.toString(tempPlayer.getEnergy()));
+//        }
+//        if(mTurnData.players.size() > 3) {
+//            tempPlayer = mTurnData.players.get(3);
+//            ((TextView)findViewById(R.id.name3)).setText(tempPlayer.getName());
+//            ((TextView) findViewById(R.id.heart3)).setText(Integer.toString(tempPlayer.getHealth()));
+//            ((TextView) findViewById(R.id.vp3)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+//            ((TextView) findViewById(R.id.energy3)).setText(Integer.toString(tempPlayer.getEnergy()));
+//        }
+
+        /*
 
 //        int tokyoP = gameState.tokyoP;
 //

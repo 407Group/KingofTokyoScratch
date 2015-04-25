@@ -814,13 +814,13 @@ public class MainActivity extends Activity
     //Below this was not modified from SkeletonTBMP
 
     public void rollDice() {
-        TextView[] t = new TextView[6];
-        t[0] = (TextView) findViewById(R.id.die0);
-        t[1] = (TextView) findViewById(R.id.die1);
-        t[2] = (TextView) findViewById(R.id.die2);
-        t[3] = (TextView) findViewById(R.id.die3);
-        t[4] = (TextView) findViewById(R.id.die4);
-        t[5] = (TextView) findViewById(R.id.die5);
+//        TextView[] t = new TextView[6];
+//        t[0] = (TextView) findViewById(R.id.die0);
+//        t[1] = (TextView) findViewById(R.id.die1);
+//        t[2] = (TextView) findViewById(R.id.die2);
+//        t[3] = (TextView) findViewById(R.id.die3);
+//        t[4] = (TextView) findViewById(R.id.die4);
+//        t[5] = (TextView) findViewById(R.id.die5);
 
         for (int i = 0; i < 6; i++) {
             if (!keptDice[i]) {
@@ -851,7 +851,7 @@ public class MainActivity extends Activity
                         break;
 
                 }
-                t[i].setText(image);
+                diceText[i].setText(image);
             }
         }
 

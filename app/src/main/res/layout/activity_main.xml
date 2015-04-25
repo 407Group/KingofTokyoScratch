@@ -174,12 +174,12 @@
                 android:onClick="onCheckGamesClicked"
                 android:text="@string/check_games" />
 
-            <Button
+            <!--<Button
                 android:id="@+id/quickMatchButon"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:onClick="onQuickMatchClicked"
-                android:text="@string/quick_match" />
+                android:text="@string/quick_match" />-->
         </LinearLayout>
     </RelativeLayout>
 
@@ -271,7 +271,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Value0String"
-            android:id="@+id/H1Cell"
+            android:id="@+id/heart0"
             android:layout_row="1"
             android:layout_column="1"
             android:paddingLeft="15dp" />
@@ -281,7 +281,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Value0String"
-            android:id="@+id/VP1Cell"
+            android:id="@+id/vp0"
             android:layout_row="1"
             android:layout_column="2"
             android:paddingLeft="15dp" />
@@ -291,7 +291,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Value0String"
-            android:id="@+id/E1Cell"
+            android:id="@+id/energy0"
             android:layout_row="1"
             android:layout_column="3"
             android:paddingLeft="15dp" />
@@ -301,7 +301,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/P1String"
-            android:id="@+id/P1Cell"
+            android:id="@+id/name0"
             android:layout_row="1"
             android:layout_column="0"
             android:paddingLeft="15dp" />
@@ -311,7 +311,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/P2String"
-            android:id="@+id/P2Cell"
+            android:id="@+id/name1"
             android:layout_row="2"
             android:layout_column="0"
             android:paddingLeft="15dp" />
@@ -321,7 +321,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Value0String"
-            android:id="@+id/H2Cell"
+            android:id="@+id/heart1"
             android:layout_row="2"
             android:layout_column="1"
             android:paddingLeft="15dp" />
@@ -331,7 +331,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Value0String"
-            android:id="@+id/VP2Cell"
+            android:id="@+id/vp1"
             android:layout_row="2"
             android:layout_column="2"
             android:paddingLeft="15dp" />
@@ -341,7 +341,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:text="@string/Value0String"
-            android:id="@+id/E2Cell"
+            android:id="@+id/energy1"
             android:layout_row="2"
             android:layout_column="3"
             android:paddingLeft="15dp" />

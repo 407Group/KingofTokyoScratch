@@ -209,7 +209,7 @@ public class MainActivity extends Activity
     // and figure out what to do.
     public void onStartMatchClicked(View view) {
         Intent intent = Games.TurnBasedMultiplayer.getSelectOpponentsIntent(mGoogleApiClient,
-                1, 3, true);
+                1, 3, false);
         startActivityForResult(intent, RC_SELECT_PLAYERS);
     }
 
@@ -332,6 +332,7 @@ public class MainActivity extends Activity
         if (isDoingTurn) {
             findViewById(R.id.matchup_layout).setVisibility(View.GONE);
             findViewById(R.id.tokyo).setVisibility(View.VISIBLE);
+            updateStats();
 //            findViewById(R.id.gameplay_layout).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.matchup_layout).setVisibility(View.VISIBLE);
@@ -789,20 +790,6 @@ public class MainActivity extends Activity
 
 
                 break;
-            /*case R.id.buttonRoll:
-                TextView[] t = new TextView[6];
-                t[0] = (TextView) findViewById(R.id.die0);
-                t[1] = (TextView) findViewById(R.id.die1);
-                t[2] = (TextView) findViewById(R.id.die2);
-                t[3] = (TextView) findViewById(R.id.die3);
-                t[4] = (TextView) findViewById(R.id.die4);
-                t[5] = (TextView) findViewById(R.id.die5);
-
-                for (int i = 0; i < 6; i++) {
-
-                    mTurnData.dice[i].roll();
-                    t[i].setText(mTurnData.dice[i].getImage());
-                }*/
         }
     }
 
@@ -864,12 +851,16 @@ public class MainActivity extends Activity
             case 2:
                 rollDice();
                 resolveDice();
+                updateStats();
                 break;
             case 3:
                 onDoneClicked(view);
                 break;
         }
         rollCounter++;
+        if (rollCounter == 4){
+            rollCounter = 0;
+        }
     }
 
     public void resolveDice(){
@@ -956,5 +947,49 @@ public class MainActivity extends Activity
                 }
             }
         }
+    }
+
+    public void updateStats(){
+        Player tempPlayer = mTurnData.players.get(0);
+        ((TextView)findViewById(R.id.heart0)).setText(Integer.toString(tempPlayer.getHealth()));
+        ((TextView)findViewById(R.id.vp0)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+        ((TextView)findViewById(R.id.energy0)).setText(Integer.toString(tempPlayer.getEnergy()));
+
+        tempPlayer = mTurnData.players.get(1);
+        ((TextView)findViewById(R.id.heart1)).setText(Integer.toString(tempPlayer.getHealth()));
+        ((TextView)findViewById(R.id.vp1)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+        ((TextView)findViewById(R.id.energy1)).setText(Integer.toString(tempPlayer.getEnergy()));
+
+        /*tempPlayer = turnData.player.get(2);
+        ((TextView)findViewById(R.id.heart2)).setText(Integer.toString(tempPlayer.getHealth()));
+        ((TextView)findViewById(R.id.vp2)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+        ((TextView)findViewById(R.id.energy2)).setText(Integer.toString(tempPlayer.getEnergy()));*/
+
+//        int tokyoP = gameState.tokyoP;
+//
+//        if(tokyoP == 0){
+//            ((TextView)findViewById(R.id.inTokyo0)).setText("Yes");
+//            ((TextView)findViewById(R.id.inTokyo1)).setText("No");
+//            ((TextView)findViewById(R.id.inTokyo2)).setText("No");
+//        }
+//        else if(tokyoP == 1){
+//            ((TextView)findViewById(R.id.inTokyo0)).setText("No");
+//            ((TextView)findViewById(R.id.inTokyo1)).setText("Yes");
+//            ((TextView)findViewById(R.id.inTokyo2)).setText("No");
+//        }
+//        else if(tokyoP == 2){
+//            ((TextView)findViewById(R.id.inTokyo0)).setText("No");
+//            ((TextView)findViewById(R.id.inTokyo1)).setText("No");
+//            ((TextView)findViewById(R.id.inTokyo2)).setText("Yes");
+//        }
+
+        /* TODO: Fix this
+        for (int i = 0; i < turnData.player.size(); i++){
+            Player tempPlayer = turnData.player.get(i);
+            ((TextView)findViewById(R.id.heart0)).setText(Integer.toString(tempPlayer.getHealth()));
+            ((TextView)findViewById(R.id.vp0)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+            ((TextView)findViewById(R.id.energy0)).setText(Integer.toString(tempPlayer.getEnergy()));
+        }
+        */
     }
 }

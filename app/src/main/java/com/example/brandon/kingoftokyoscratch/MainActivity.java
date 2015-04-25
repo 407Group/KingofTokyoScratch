@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -54,7 +55,10 @@ public class MainActivity extends Activity
         View.OnClickListener {
 
     private int rollCounter = 0; //number of times we have hit the roll button
-    private int[] dice = new int[6];
+    private int[] dice;
+    private boolean[] keptDice;
+    private TextView[] diceText;
+
 
     public static final String TAG = "MainActivity";
 
@@ -117,6 +121,20 @@ public class MainActivity extends Activity
 
         mDataView = ((TextView) findViewById(R.id.data_view));
         mTurnTextView = ((TextView) findViewById(R.id.turn_counter_view));
+
+        dice = new int[6];
+        keptDice = new boolean[6];
+        diceText = new TextView[6];
+        for (int d = 0; d<6 ; d++){
+            dice[d] = -1;
+            keptDice[d] = false;
+        }
+        diceText[0] = (TextView)findViewById(R.id.die0);
+        diceText[1] = (TextView)findViewById(R.id.die1);
+        diceText[2] = (TextView)findViewById(R.id.die2);
+        diceText[3] = (TextView)findViewById(R.id.die3);
+        diceText[4] = (TextView)findViewById(R.id.die4);
+        diceText[5] = (TextView)findViewById(R.id.die5);
     }
 
     @Override
@@ -805,38 +823,37 @@ public class MainActivity extends Activity
         t[5] = (TextView) findViewById(R.id.die5);
 
         for (int i = 0; i < 6; i++) {
-            //mTurnData.dice[i].roll();
-            Random rn = new Random();
-            int r = rn.nextInt(6);
-            String image = "";
+            if (!keptDice[i]) {
+                Random rn = new Random();
+                int r = rn.nextInt(6);
+                String image = "";
+                dice[i] = r;
 
-            dice[i] = r;
+                switch (r) {
 
-            switch (r) {
+                    case 0:
+                        image = "Energy";
+                        break;
+                    case 1:
+                        image = "1";
+                        break;
+                    case 2:
+                        image = "2";
+                        break;
+                    case 3:
+                        image = "3";
+                        break;
+                    case 4:
+                        image = "Claw";
+                        break;
+                    case 5:
+                        image = "Heart";
+                        break;
 
-                case 0:
-                    image = "Energy";
-                    break;
-                case 1:
-                    image = "1";
-                    break;
-                case 2:
-                    image = "2";
-                    break;
-                case 3:
-                    image = "3";
-                    break;
-                case 4:
-                    image = "Claw";
-                    break;
-                case 5:
-                    image = "Heart";
-                    break;
-
+                }
+                t[i].setText(image);
             }
-            t[i].setText(image);
         }
-
 
     }
 
@@ -852,6 +869,7 @@ public class MainActivity extends Activity
                 rollDice();
                 resolveDice();
                 updateStats();
+                resetKeptDice();
                 break;
             case 3:
                 onDoneClicked(view);
@@ -941,7 +959,7 @@ public class MainActivity extends Activity
             }
             else { //current player is in tokyo
                 for(Player p : mTurnData.players){
-                    if(p.getInTokyo()){
+                    if(!p.getInTokyo()){
                         p.takeDamage(numClaws);
                     }
                 }
@@ -991,5 +1009,53 @@ public class MainActivity extends Activity
             ((TextView)findViewById(R.id.energy0)).setText(Integer.toString(tempPlayer.getEnergy()));
         }
         */
+    }
+
+    public void keepDie0(View view){
+        keepDie(view,0);
+    }
+
+    public void keepDie1(View view){
+        keepDie(view,1);
+    }
+
+    public void keepDie2(View view){
+        keepDie(view,2);
+    }
+
+    public void keepDie3(View view){
+        keepDie(view,3);
+    }
+
+    public void keepDie4(View view){
+        keepDie(view,4);
+    }
+
+    public void keepDie5(View view){
+        keepDie(view,5);
+    }
+
+    public void keepDie(View view, int d){
+        if (rollCounter > 0 && rollCounter < 3) {
+            if (keptDice[d]) {
+                keptDice[d] = false;
+                diceText[d].setBackgroundColor(Color.WHITE);
+            }
+            else {
+                keptDice[d] = true;
+                diceText[d].setBackgroundColor(Color.YELLOW);
+            }
+        }
+        else if(rollCounter == 3){
+            diceText[d].setBackgroundColor(Color.WHITE);
+        }
+    }
+
+    public void resetKeptDice(){
+        for (int i = 0; i< 6; i++){
+            keptDice[i] = false;
+            diceText[i].setBackgroundColor(Color.WHITE);
+
+        }
     }
 }

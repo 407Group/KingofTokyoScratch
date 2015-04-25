@@ -30,6 +30,8 @@
     <string name="PlayerHeaderName">Player</string>
     <string name="P1String">P1</string>
     <string name="P2String">P2</string>
+    <string name="P3String">P3</string>
+    <string name="P4String">P4</string>
     <string name="Value0String">0</string>
     <string name="EnergyHeader">Energy</string>
     <string name="KeepString">Keep</string>

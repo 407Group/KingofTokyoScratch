@@ -920,9 +920,6 @@ public class MainActivity extends Activity
         }
 
         int curP = -1;
-
-        //update current player's stats
-        //TODO: Remove and replace with update all stats
         for (int i = 0; i < mTurnData.players.size(); i++){
             String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
             String myParticipantId = mMatch.getParticipantId(playerId);
@@ -948,8 +945,9 @@ public class MainActivity extends Activity
                 }
             }
 
-            if(!tokyoFull){ //tokyo is empty
+            if(!tokyoFull){ //tokyo is empty, take tokyo as yours
                 mTurnData.players.get(curP).setInTokyo(true);
+                Toast.makeText(this, "You have taken Tokyo!", TOAST_DELAY).show();
             }
             else if(!mTurnData.players.get(curP).getInTokyo()){ //current player not in tokyo
                 mTurnData.players.get(tokyoID).takeDamage(numClaws);
@@ -966,33 +964,34 @@ public class MainActivity extends Activity
 
     public void updateStats(){
         Player tempPlayer = mTurnData.players.get(0);
-        ((TextView)findViewById(R.id.name0)).setText(tempPlayer.getName());
+        ((TextView)findViewById(R.id.name0)).setText(shortenName(tempPlayer.getName()));
         ((TextView)findViewById(R.id.heart0)).setText(Integer.toString(tempPlayer.getHealth()));
         ((TextView)findViewById(R.id.vp0)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
         ((TextView)findViewById(R.id.energy0)).setText(Integer.toString(tempPlayer.getEnergy()));
 
         tempPlayer = mTurnData.players.get(1);
-        ((TextView)findViewById(R.id.name1)).setText(tempPlayer.getName());
+        ((TextView)findViewById(R.id.name1)).setText(shortenName(tempPlayer.getName()));
         ((TextView)findViewById(R.id.heart1)).setText(Integer.toString(tempPlayer.getHealth()));
         ((TextView)findViewById(R.id.vp1)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
         ((TextView)findViewById(R.id.energy1)).setText(Integer.toString(tempPlayer.getEnergy()));
 
-//        if(mTurnData.players.size() > 2) {
-//            tempPlayer = mTurnData.players.get(2);
-//            ((TextView)findViewById(R.id.name2)).setText(tempPlayer.getName());
-//            ((TextView) findViewById(R.id.heart2)).setText(Integer.toString(tempPlayer.getHealth()));
-//            ((TextView) findViewById(R.id.vp2)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
-//            ((TextView) findViewById(R.id.energy2)).setText(Integer.toString(tempPlayer.getEnergy()));
-//        }
-//        if(mTurnData.players.size() > 3) {
-//            tempPlayer = mTurnData.players.get(3);
-//            ((TextView)findViewById(R.id.name3)).setText(tempPlayer.getName());
-//            ((TextView) findViewById(R.id.heart3)).setText(Integer.toString(tempPlayer.getHealth()));
-//            ((TextView) findViewById(R.id.vp3)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
-//            ((TextView) findViewById(R.id.energy3)).setText(Integer.toString(tempPlayer.getEnergy()));
-//        }
+        if(mTurnData.players.size() > 2) {
+            tempPlayer = mTurnData.players.get(2);
+            ((TextView)findViewById(R.id.name2)).setText(shortenName(tempPlayer.getName()));
+            ((TextView) findViewById(R.id.heart2)).setText(Integer.toString(tempPlayer.getHealth()));
+            ((TextView) findViewById(R.id.vp2)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+            ((TextView) findViewById(R.id.energy2)).setText(Integer.toString(tempPlayer.getEnergy()));
+        }
+        if(mTurnData.players.size() > 3) {
+            tempPlayer = mTurnData.players.get(3);
+            ((TextView)findViewById(R.id.name3)).setText(shortenName(tempPlayer.getName()));
+            ((TextView) findViewById(R.id.heart3)).setText(Integer.toString(tempPlayer.getHealth()));
+            ((TextView) findViewById(R.id.vp3)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
+            ((TextView) findViewById(R.id.energy3)).setText(Integer.toString(tempPlayer.getEnergy()));
+        }
 
-        /*
+
+        //TODO update view with who is in Tokyo
 
 //        int tokyoP = gameState.tokyoP;
 //
@@ -1012,14 +1011,7 @@ public class MainActivity extends Activity
 //            ((TextView)findViewById(R.id.inTokyo2)).setText("Yes");
 //        }
 
-        /* TODO: Fix this
-        for (int i = 0; i < turnData.player.size(); i++){
-            Player tempPlayer = turnData.player.get(i);
-            ((TextView)findViewById(R.id.heart0)).setText(Integer.toString(tempPlayer.getHealth()));
-            ((TextView)findViewById(R.id.vp0)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
-            ((TextView)findViewById(R.id.energy0)).setText(Integer.toString(tempPlayer.getEnergy()));
-        }
-        */
+
     }
 
     public void keepDie0(View view){
@@ -1068,5 +1060,25 @@ public class MainActivity extends Activity
             diceText[i].setBackgroundColor(Color.WHITE);
 
         }
+    }
+
+    public String shortenName(String name){
+
+        int spaceIndex = name.indexOf(" ");
+        if(spaceIndex < 0){
+            if(name.length() < 7){ //no space in short name
+                return name;
+            }
+
+            return name.substring(0,7); //no space in long name
+        }
+        else {
+            if (spaceIndex < 7) {
+                return name.substring(0, spaceIndex); //short name with space
+            }
+            return name.substring(0, 7); //long name with space
+        }
+
+
     }
 }

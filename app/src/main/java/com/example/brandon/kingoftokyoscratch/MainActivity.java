@@ -379,10 +379,10 @@ public class MainActivity extends Activity
         mTurnTextView.setText("Turn " + mTurnData.turnCounter);*/
 
         //set image uri
-        ImageView tempTokyoImage = (ImageView)findViewById(R.id.tokyoImage);
+        findViewById(R.id.tokyoImage).setVisibility(View.INVISIBLE);
+        findViewById(R.id.currentTokyo).setVisibility(View.INVISIBLE);
         Context context = getApplicationContext();
         ImageManager test = ImageManager.create(context);
-        test.loadImage(tempTokyoImage,Games.Players.getCurrentPlayer(mGoogleApiClient).getHiResImageUri());
 
 
 
@@ -391,9 +391,10 @@ public class MainActivity extends Activity
                TextView tempMidPlayer = (TextView)findViewById(R.id.tokyoPlayerName);
                 tempMidPlayer.setText(mTurnData.players.get(i).getName());
 
-//                String tempPID = mTurnData.players.get(i).getPid();
-//                test.loadImage(tempTokyoImage,Games.Players.);
-
+                String tempPID = mTurnData.players.get(i).getPid();
+                test.loadImage((ImageView)findViewById(R.id.tokyoImage), mMatch.getParticipant(tempPID).getHiResImageUri());
+                findViewById(R.id.tokyoImage).setVisibility(View.VISIBLE);
+                findViewById(R.id.currentTokyo).setVisibility(View.VISIBLE);
             }
 
 

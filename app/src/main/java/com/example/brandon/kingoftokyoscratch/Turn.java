@@ -65,6 +65,7 @@ public class Turn {
             //retVal.put("data", data);
             //retVal.put("turnCounter", turnCounter);
             retVal.put("isTokyoAttacked", isTokyoAttacked);
+            retVal.put("lastAttackerId",lastAttackerId);
             for(int i = 0; i < players.size(); i++){
                 JSONObject tempVal = new JSONObject();
                 tempVal.put("name",players.get(i).getName());
@@ -117,10 +118,8 @@ public class Turn {
             if (obj.has("turnCounter")) {
                 retVal.turnCounter = obj.getInt("turnCounter");
             }*/
-            if (obj.has("isTokyoAttacked")) {
-                retVal.isTokyoAttacked = obj.getBoolean("isTokyoAttacked");
-            }
-            for (int i = 0; i < obj.length()-1; i++) { // TODO change bound
+
+            for (int i = 0; i < obj.length()-2; i++) { // TODO change bound
                 String playerNum = "Player" + Integer.toString(i);
                 if (obj.has(playerNum)) {
                     JSONObject playerObj = obj.getJSONObject(playerNum);
@@ -144,11 +143,20 @@ public class Turn {
                     }
                 }
             }
+            if (obj.has("isTokyoAttacked")) {
+                retVal.setTokyoAttacked(obj.getBoolean("isTokyoAttacked"));
+                Log.d("TURNDATA","isTokyoAttacked = "+retVal.isTokyoAttacked());
+            }
+            if (obj.has("lastAttackerId")) {
+                retVal.setLastAttackerId(obj.getString("lastAttackerId"));
+            }
 
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
+        Log.d("TURNDATA","Is Tokyo Attacked? "+retVal.isTokyoAttacked());
 
         return retVal;
     }

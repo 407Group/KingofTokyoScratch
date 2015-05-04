@@ -588,7 +588,6 @@ public class MainActivity extends Activity
      * @return participantId of next player, or null if automatching
      */
     public String getNextParticipantId() {
-        //TODO tokyo passing maybe
         String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
         String myParticipantId = mMatch.getParticipantId(playerId);
 
@@ -653,6 +652,10 @@ public class MainActivity extends Activity
         switch (turnStatus) {
             case TurnBasedMatch.MATCH_TURN_STATUS_MY_TURN:
                 mTurnData = Turn.unpersist(mMatch.getData());
+                Player curPlayer = mTurnData.players.get(getCurP());
+                if(curPlayer.getInTokyo()) {
+                    curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
+                }
                 setGameplayUI();
                 return;
             case TurnBasedMatch.MATCH_TURN_STATUS_THEIR_TURN:
@@ -896,13 +899,23 @@ public class MainActivity extends Activity
                 rollDice();
                 resolveDice();
                 updateStats();
-                //resetKeptDice();
-                for (int i = 0; i< 6; i++){
-                    diceText[i].setBackgroundColor(Color.YELLOW);
+                resetKeptDice();
+                if(mTurnData.isTokyoAttacked()){
+                    //TODO add text to string class
+                    ((Button)findViewById(R.id.buttonRoll)).setText("Ask Tokyo");
+
                 }
-                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
+                else{
+                    ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
+                    rollCounter++;//skip case 3 and go to next one
+                }
                 break;
             case 3:
+                //TODO ask tokyo player if they want to leave
+                sendTokyoRequest();
+                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
+                break;
+            case 4:
                 onDoneClicked(view);
                 resetKeptDice();
                 for (int i = 0; i< 6; i++){
@@ -912,7 +925,7 @@ public class MainActivity extends Activity
                 break;
         }
         rollCounter++;
-        if (rollCounter == 4){
+        if (rollCounter == 5){
             rollCounter = 0;
         }
     }
@@ -958,38 +971,31 @@ public class MainActivity extends Activity
             vp = vp + 3 + numOf3;
         }
 
-        int curP = -1;
-        for (int i = 0; i < mTurnData.players.size(); i++){
-            String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
-            String myParticipantId = mMatch.getParticipantId(playerId);
-//            Log.d("pid", mMatch.getParticipantId(playerId));
-//            Log.d("pid",mTurnData.players.get(i).getPid());
-            if(mTurnData.players.get(i).getPid().equals(myParticipantId)){
-                curP = i;
-            }
-        }
+        int curP = getCurP();
         mTurnData.players.get(curP).updateVictoryPoint(vp);
         mTurnData.players.get(curP).updateEnergy(numEnergy);
         mTurnData.players.get(curP).updateHealth(numHearts);
 
         //attack another player or take tokyo
         if(numClaws > 0){
-
-            boolean tokyoFull = false;
-            int tokyoID = -1;
-            for (int i = 0; i < mTurnData.players.size(); i++){
-                if (mTurnData.players.get(i).getInTokyo()){
-                    tokyoFull = true;
-                    tokyoID = i;
-                }
-            }
-
-            if(!tokyoFull){ //tokyo is empty, take tokyo as yours
+            //if(!tokyoFull){ //tokyo is empty, take tokyo as yours
+            if(mTurnData.isTokyoEmpty()){ //tokyo is empty, take tokyo as yours
                 mTurnData.players.get(curP).setInTokyo(true);
+                mTurnData.players.get(curP).updateVictoryPoint(1);
                 Toast.makeText(this, "You have taken Tokyo!", TOAST_DELAY).show();
             }
             else if(!mTurnData.players.get(curP).getInTokyo()){ //current player not in tokyo
-                mTurnData.players.get(tokyoID).takeDamage(numClaws);
+                //Player tokyoPlayer = mTurnData.players.get(tokyoID);
+                Player tokyoPlayer = getTokyoPlayer();
+                tokyoPlayer.takeDamage(numClaws);
+                if(tokyoPlayer.getHealth() == 0){ //tokyo player dies, take tokyo
+                    tokyoPlayer.setInTokyo(false);
+                    mTurnData.players.get(curP).setInTokyo(true);
+                }
+                else { //tokyo player still alive
+                    mTurnData.setTokyoAttacked(true);
+                    mTurnData.setLastAttackerId(mTurnData.players.get(curP).getPid());
+                }
             }
             else { //current player is in tokyo
                 for(Player p : mTurnData.players){
@@ -1028,29 +1034,6 @@ public class MainActivity extends Activity
             ((TextView) findViewById(R.id.vp3)).setText(Integer.toString(tempPlayer.getVictoryPoint()));
             ((TextView) findViewById(R.id.energy3)).setText(Integer.toString(tempPlayer.getEnergy()));
         }
-
-
-        //TODO update view with who is in Tokyo
-
-//        int tokyoP = gameState.tokyoP;
-//
-//        if(tokyoP == 0){
-//            ((TextView)findViewById(R.id.inTokyo0)).setText("Yes");
-//            ((TextView)findViewById(R.id.inTokyo1)).setText("No");
-//            ((TextView)findViewById(R.id.inTokyo2)).setText("No");
-//        }
-//        else if(tokyoP == 1){
-//            ((TextView)findViewById(R.id.inTokyo0)).setText("No");
-//            ((TextView)findViewById(R.id.inTokyo1)).setText("Yes");
-//            ((TextView)findViewById(R.id.inTokyo2)).setText("No");
-//        }
-//        else if(tokyoP == 2){
-//            ((TextView)findViewById(R.id.inTokyo0)).setText("No");
-//            ((TextView)findViewById(R.id.inTokyo1)).setText("No");
-//            ((TextView)findViewById(R.id.inTokyo2)).setText("Yes");
-//        }
-
-
     }
 
     public void keepDie0(View view){
@@ -1097,6 +1080,7 @@ public class MainActivity extends Activity
         for (int i = 0; i< 6; i++){
             keptDice[i] = false;
             diceText[i].setBackgroundColor(Color.WHITE);
+
         }
     }
 
@@ -1116,7 +1100,60 @@ public class MainActivity extends Activity
             }
             return name.substring(0, 7); //long name with space
         }
+    }
+
+    public int getCurP(){
+        int curP = -1;
+        for (int i = 0; i < mTurnData.players.size(); i++){
+            String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
+            String myParticipantId = mMatch.getParticipantId(playerId);
+            if(mTurnData.players.get(i).getPid().equals(myParticipantId)){
+                curP = i;
+            }
+        }
+        return curP;
+    }
+
+    public Player getCurrentPlayer(){
+        for (int i = 0; i < mTurnData.players.size(); i++){
+            String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
+            String myParticipantId = mMatch.getParticipantId(playerId);
+            if(mTurnData.players.get(i).getPid().equals(myParticipantId)){
+                return mTurnData.players.get(i);
+            }
+        }
+        return null;
+    }
+
+    public Player getTokyoPlayer(){
+        for (int i = 0; i < mTurnData.players.size(); i++){
+            if (mTurnData.players.get(i).getInTokyo()){
+                return mTurnData.players.get(i);
+            }
+        }
+        return null;
+    }
 
 
+
+    public void sendTokyoRequest() {
+        showSpinner();
+
+        String nextParticipantId = getNextParticipantId();
+        String tokyoParticipantId = getTokyoPlayer().getPid();
+        // Create the next turn
+
+        showSpinner();
+
+        Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, mMatch.getMatchId(),
+                mTurnData.persist(), tokyoParticipantId).setResultCallback(
+                new ResultCallback<TurnBasedMultiplayer.UpdateMatchResult>() {
+                    @Override
+                    public void onResult(TurnBasedMultiplayer.UpdateMatchResult result) {
+                        processResult(result);
+                    }
+                });
+
+        mTurnData = null;
     }
 }

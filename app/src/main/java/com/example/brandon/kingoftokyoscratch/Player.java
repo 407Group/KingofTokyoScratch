@@ -2,7 +2,7 @@ package com.example.brandon.kingoftokyoscratch;
 
 public class Player {
     private String name;
-    private String pid;
+    private String pid; //google participant id
     private int health;
     private int victoryPoint;
     private int energy;

@@ -2,172 +2,172 @@
 <items version="2" >
 
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-e440fdcd39d36e6d56db67a7f6e03361d86e4177.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-79a73fbbadbcdb625526c679789db3d52d755fe3.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-98e677c79c15f5b4fd2f83cefd9b9c717909233a.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-dad53f9493696cbb828b2b1f328f2ed116f50264.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="a08d65794b844d8e7540bf9a33859bf3b2482d7f">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-454a947b86118552c6092b6a0ff9834b242dd813.jar" />
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-c9a03728f5e817d0ab6cc2a653fbea0f14eb75d9.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\KingofTokyoScratch\BaseGameUtils\unspecified\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-09d71076edd76aad0d8a1d2426f3b32590f3da69.jar" />
+        sha1="5a20113de325747d52f006e6a2f10fd24c6d2935">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-1b24472be2c5b7c318fb2194e4661b38fd170ea5.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-8337fa2dc37dfcb83ae3a1a354ff985cbe478546.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-ee9132217409e9fc24c5cb2b4aba14df0d01a8c2.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-8c126e881df51c63ca85a4f9d7f1311ccc2e28bc.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-be78e4006cf679038eb7c9aaf392f05fe86e7cef.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-27f1d580e0eb5c67becae5a345daed955542b3af.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\KingofTokyoScratch\BaseGameUtils\unspecified\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="a1a764b7e97f783d3cd0db8313ea029fe72004bb">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-37e3161715308fe801dc118a0d60cabc94f8d2e0.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-64cad6755395e66a5bd1faa3703954427e53b3e3.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="055783146ba9654a725442563be78cad303aad1f">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-1152bb1812ea74e64be18884fce5c6bbb34f8ba5.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-b3ce7e3857a3b5c58537b8281733f70142b592d2.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-identity\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="fb04b12526b0073c7fb1ebb70c5842d82ee95596">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-a2246916b2f10183b06a9176a1f1bdacccfbf70a.jar" />
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-9550c4e34c98fab5ee39413a0ded20b2e9cd08be.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-a832560fd3831135b3ee3a3082b9eda0884cd080.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-122b3d407cd4cdcec84dfa0400ac2e8966b7b25c.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.0.0\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-89b8720bc37e83ee5e28492c303453f4ef8e3693.jar" />
-    </item>
-    <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-fitness\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="3c0b099f9de16b265ecd6122fcb603e7d0d29f90">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-316a6fd3d552e63f53b198bf99833e1140ed0a99.jar" />
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-88cdfaaae8375547246544e8608cd811881a31be.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-drive\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-b4b67bc7434d36a954eef73c001b5ad4e0264040.jar" />
+        sha1="41b3870cbe5fa546d8095b5b89d42cb69f3dd175">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-63e8b703e2eec496b6927c40281014d727cc276d.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-1764162722eafb41cc8e1b5e0559332d7ebc7654.jar" />
+        sha1="c976518693e89ad44fbfccfc654941eaec198d08">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-813742658029beffcacca5dcd015d402e97b9382.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-ads\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-ebbeef3cd0fcbdb01135208180f1df6369cbe82f.jar" />
+        sha1="e3d791b42eaa90416cd0b2d2e608092794a3baa4">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-5478e8578166f8cfadc05a44e560dfe7b152f4fb.jar" />
     </item>
     <item
-        jar="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.0.0\classes.jar"
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wearable\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="3033cc3a2c68dff3e5b646d6d084bdbdf7d00b25">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-c76fdbc04792c2bc7ad55ab4098a7f497a14e278.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4e86306289ace4aa0cfec44a05ed2b410d36989d">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-37557b6f23a558ed0986b246d91747f6d40abea8.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-plus\7.0.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="0e8228b4bc69c6a2c8d7c18498a77e53417d2574">
-        <dex dex="C:\Users\Brandon\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-6a7c849f04749dca09defcae7cda9039e0ec3520.jar" />
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-ef99d12c540bc49f906e7ad9dbd01b678cda6c2c.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.0.0\libs\internal_impl-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="b5b92f469d515a13d778900f6d50c03d12f35504">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\internal_impl-22.0.0-ec1f5c1b7d208a3cf213e80e77c2b0bffb27e1e8.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-cast\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4cd0b093824b3228fffc21ea369b98d0b1db6566">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-9fc03bfbd62d8e12a807ea14bffc2fa1635ddab2.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\22.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="d84409890828e07d344a3b9b1da545dba9897b51">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-514b1ce43c13a33efbb695d3791b619db7311953.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.0.0\support-annotations-22.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="685d0b2c590447e85284ed84712cb363ba04eff8">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\support-annotations-22.0.0-8ec1ce8a19644fd8edfda8a575153b681298e134.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-panorama\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1c5a76debf0c2857ccad422c4a80ed785982f8df">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-ad1cb1bb032148378bd1879dc7058725104f2cb4.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-wallet\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="a96b762bde4139de855735f175ec4d17dca55a6d">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-07c40f93114aba3e19305c2d127e7c29c3f7cd24.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-games\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="055783146ba9654a725442563be78cad303aad1f">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-36218ac61799950e9214e205cfadfcaf66801ba2.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-analytics\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="29fd6d3794b71491c2789708cd8d03c71feb8954">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-cde3533e5ade6c3ccc653875d1a04cb559b84728.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="4c93d99d454c975536bbe3b42283eee847f03ea3">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-21559fc795f4617fbe864d32ffb610938b25919d.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-appstate\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="7ff613bf78ab057293892fdbd4169eda899c89b9">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-af9c324ae47499e55a037f1392f46092b7a57331.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-nearby\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="ef5f051e7308febe289dc93c67c5f32785b4260a">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-4cb272e6cb9c96ef1836dc1e9f0218976faba6ea.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="17f8750d5c0749e44dd7c54aa390d9c937803825">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-f28a4bd7fad4fde68428f3026a3a50adbd1eab29.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="9224bc4c54ba95147c7eabd874573763c07cb6be">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-f7a41c2fbab8b13feee2712d43b13dc2b4fa5468.jar" />
+    </item>
+    <item
+        jar="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-location\7.0.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="73ccb92b70112f2e463e415ef8d7275de7da6516">
+        <dex dex="C:\Users\koliva\Documents\GitHub\KingofTokyoScratch\app\build\intermediates\pre-dexed\debug\classes-2b3bd83764dfb574f05fd1aacda3813954398503.jar" />
     </item>
 
 </items>

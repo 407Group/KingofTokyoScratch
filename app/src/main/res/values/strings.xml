@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">King of Tokyo</string>
+    <string name="app_name">King of Neo Tokyo</string>
     <string name="action_settings">Settings</string>
     <string name="next_turn_">Next turn</string>
     <string name="welcome">Welcome to the Skeleton, the game!  This is network-only, so you&amp;apos;ll need to log in to play!</string>
@@ -35,7 +35,7 @@
     <string name="Value0String">0</string>
     <string name="EnergyHeader">Energy</string>
     <string name="KeepString">Keep</string>
-    <string name="buttonRollString">Roll!</string>
+    <string name="buttonRollString"></string>
     <string name="startRound">Start new Round</string>
 
     <!--<string name="currentPlayerString">Player x\'s Turn!</string>

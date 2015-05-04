@@ -864,11 +864,18 @@ public class MainActivity extends Activity
                 rollDice();
                 resolveDice();
                 updateStats();
-                resetKeptDice();
+                //resetKeptDice();
+                for (int i = 0; i< 6; i++){
+                    diceText[i].setBackgroundColor(Color.YELLOW);
+                }
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
                 break;
             case 3:
                 onDoneClicked(view);
+                resetKeptDice();
+                for (int i = 0; i< 6; i++){
+                    diceText[i].setText("");
+                }
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll);
                 break;
         }
@@ -1058,7 +1065,6 @@ public class MainActivity extends Activity
         for (int i = 0; i< 6; i++){
             keptDice[i] = false;
             diceText[i].setBackgroundColor(Color.WHITE);
-
         }
     }
 

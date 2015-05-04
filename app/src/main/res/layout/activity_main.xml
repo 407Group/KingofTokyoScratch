@@ -1074,13 +1074,48 @@
         </LinearLayout>
 
         <LinearLayout
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:id="@+id/tokyoAndRoll"
-            android:padding="15dp">
+            android:padding="15dp"
+            android:weightSum="1"
+            android:layout_toEndOf="@+id/diceLayouts"
+            android:gravity="bottom|right">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/currentTokyo"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:layout_weight="1"
+                android:gravity="bottom|right">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Current King"
+                    android:id="@+id/textView"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:text="Medium Text"
+                    android:id="@+id/tokyoPlayerName" />
+
+            </LinearLayout>
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="fill_parent"
+                android:id="@+id/tokyoImage" />
 
             <Button
                 android:id="@+id/buttonRoll"
@@ -1090,6 +1125,7 @@
 
                 android:onClick="generalButtonClicked"
                 android:text="@string/firstRoll" />
+
         </LinearLayout>
 
         <LinearLayout
@@ -1098,7 +1134,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:padding="15dp">
+            android:padding="15dp"
+            android:id="@+id/cardToDisplay">
 
             <ImageView
                 android:layout_width="50dp"

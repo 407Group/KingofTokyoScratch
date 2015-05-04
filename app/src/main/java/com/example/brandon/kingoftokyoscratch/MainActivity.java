@@ -5,6 +5,7 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,12 +13,14 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.images.ImageManager;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesStatusCodes;
 import com.google.android.gms.games.multiplayer.Invitation;
@@ -351,6 +354,13 @@ public class MainActivity extends Activity
         if (isDoingTurn) {
             findViewById(R.id.matchup_layout).setVisibility(View.GONE);
             findViewById(R.id.tokyo).setVisibility(View.VISIBLE);
+            if(mTurnData.players.size() == 2){
+                findViewById(R.id.p3Layout).setVisibility(View.GONE);
+                findViewById(R.id.p4Layout).setVisibility(View.GONE);
+            }
+            else if(mTurnData.players.size() == 3){
+                findViewById(R.id.p4Layout).setVisibility(View.GONE);
+            }
             updateStats();
 //            findViewById(R.id.gameplay_layout).setVisibility(View.VISIBLE);
         } else {
@@ -367,6 +377,28 @@ public class MainActivity extends Activity
         setViewVisibility();
         /*mDataView.setText(mTurnData.data);
         mTurnTextView.setText("Turn " + mTurnData.turnCounter);*/
+
+        //set image uri
+        ImageView tempTokyoImage = (ImageView)findViewById(R.id.tokyoImage);
+        Context context = getApplicationContext();
+        ImageManager test = ImageManager.create(context);
+        test.loadImage(tempTokyoImage,Games.Players.getCurrentPlayer(mGoogleApiClient).getHiResImageUri());
+
+
+
+        for(int i = 0; i < mTurnData.players.size(); i++){
+            if(mTurnData.players.get(i).getInTokyo()){
+               TextView tempMidPlayer = (TextView)findViewById(R.id.tokyoPlayerName);
+                tempMidPlayer.setText(mTurnData.players.get(i).getName());
+
+//                String tempPID = mTurnData.players.get(i).getPid();
+//                test.loadImage(tempTokyoImage,Games.Players.);
+
+            }
+
+
+
+        }
     }
 
     // Helpful dialogs

@@ -39,6 +39,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0060f155-c123-4cb4-87b2-27d105ac657b" name="Default" comment="">
+<<<<<<< HEAD
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/intermediates/model_data.bin" afterPath="$PROJECT_DIR$/build/intermediates/model_data.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaseGameUtils/BaseGameUtils.iml" afterPath="$PROJECT_DIR$/BaseGameUtils/BaseGameUtils.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/KingofTokyoScratch.iml" afterPath="$PROJECT_DIR$/KingofTokyoScratch.iml" />
@@ -64,6 +65,13 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_7_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/play_services_wallet_7_0_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_22_0_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_22_0_0.xml" />
+=======
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/cache.properties.lock" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileHashes.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/fileSnapshots.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.2.1/taskArtifacts/taskArtifacts.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" />
+>>>>>>> origin/master
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="King of Tokyo Scratch.iws" />
@@ -146,8 +154,13 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.14946619" vertical-offset="10413" max-vertical-offset="19380">
               <caret line="652" column="58" selection-start-line="652" selection-start-column="58" selection-end-line="652" selection-end-column="58" />
+=======
+            <state vertical-scroll-proportion="0.78205127">
+              <caret line="396" column="74" selection-start-line="396" selection-start-column="74" selection-end-line="396" selection-end-column="74" />
+>>>>>>> origin/master
               <folding>
                 <element signature="e#8341#8379#0" expanded="true" />
                 <element signature="e#9544#9777#0" expanded="true" />
@@ -159,6 +172,7 @@
                 <element signature="e#11544#11813#0" expanded="true" />
                 <element signature="e#11794#11795#0" expanded="true" />
                 <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
                 <element signature="e#12584#12585#0" expanded="true" />
                 <element signature="e#16005#16292#0" expanded="true" />
                 <element signature="e#16273#16274#0" expanded="true" />
@@ -189,6 +203,17 @@
                 <element signature="e#36373#36391#0" expanded="true" />
                 <element signature="e#44127#44396#0" expanded="true" />
                 <element signature="e#44377#44378#0" expanded="true" />
+=======
+                <element signature="e#12602#12603#0" expanded="true" />
+                <element signature="e#19987#20280#0" expanded="true" />
+                <element signature="e#20279#20280#0" expanded="true" />
+                <element signature="e#21426#21695#0" expanded="true" />
+                <element signature="e#21694#21695#0" expanded="true" />
+                <element signature="e#21944#22217#0" expanded="true" />
+                <element signature="e#22216#22217#0" expanded="true" />
+                <element signature="e#42788#43057#0" expanded="true" />
+                <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
               </folding>
             </state>
           </provider>
@@ -197,9 +222,24 @@
       <file leaf-file-name="Turn.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="2465">
               <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
               <folding />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="129" column="97" selection-start-line="129" selection-start-column="97" selection-end-line="129" selection-end-column="97" />
+              <folding>
+                <element signature="e#477#478#0" expanded="true" />
+                <element signature="e#520#521#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#824#825#0" expanded="true" />
+                <element signature="e#865#866#0" expanded="true" />
+                <element signature="e#902#903#0" expanded="true" />
+                <element signature="e#1077#1078#0" expanded="true" />
+                <element signature="e#1130#1131#0" expanded="true" />
+              </folding>
+>>>>>>> origin/master
             </state>
           </provider>
         </entry>
@@ -207,8 +247,13 @@
       <file leaf-file-name="Player.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1734">
               <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
+=======
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+>>>>>>> origin/master
               <folding />
             </state>
           </provider>
@@ -217,7 +262,11 @@
       <file leaf-file-name="strings.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="578" max-vertical-offset="1139">
+=======
+            <state vertical-scroll-proportion="-0.0">
+>>>>>>> origin/master
               <caret line="34" column="42" selection-start-line="34" selection-start-column="42" selection-end-line="34" selection-end-column="42" />
               <folding />
             </state>
@@ -1839,6 +1888,12 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java" />
+>>>>>>> origin/master
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java" />
       </list>
     </option>
@@ -2255,7 +2310,13 @@
       <created>1430770309084</created>
       <updated>1430770309084</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Merged Brandons with Previous Commit">
+      <created>1430771899597</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1430771899597</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2273,7 +2334,12 @@
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32491767" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+<<<<<<< HEAD
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42589438" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+=======
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4259056" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+>>>>>>> origin/master
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2310,7 +2376,8 @@
     </option>
     <MESSAGE value="Added the old grid layout but the code has not changed." />
     <MESSAGE value="Kevin's UI Clean up + Tenzin's UI + Tokyo Image inprogress" />
-    <option name="LAST_COMMIT_MESSAGE" value="Kevin's UI Clean up + Tenzin's UI + Tokyo Image inprogress" />
+    <MESSAGE value="Merged Brandons with Previous Commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merged Brandons with Previous Commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -2320,7 +2387,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
-          <folding />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2366,6 +2442,7 @@
             <element signature="e#11544#11813#0" expanded="true" />
             <element signature="e#11794#11795#0" expanded="true" />
             <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#12584#12585#0" expanded="true" />
             <element signature="e#16005#16292#0" expanded="true" />
             <element signature="e#16273#16274#0" expanded="true" />
@@ -2396,6 +2473,17 @@
             <element signature="e#36373#36391#0" expanded="true" />
             <element signature="e#44127#44396#0" expanded="true" />
             <element signature="e#44377#44378#0" expanded="true" />
+=======
+            <element signature="e#12602#12603#0" expanded="true" />
+            <element signature="e#19987#20280#0" expanded="true" />
+            <element signature="e#20279#20280#0" expanded="true" />
+            <element signature="e#21426#21695#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21944#22217#0" expanded="true" />
+            <element signature="e#22216#22217#0" expanded="true" />
+            <element signature="e#42788#43057#0" expanded="true" />
+            <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -2452,6 +2540,7 @@
             <element signature="e#11544#11813#0" expanded="true" />
             <element signature="e#11794#11795#0" expanded="true" />
             <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#12584#12585#0" expanded="true" />
             <element signature="e#16005#16292#0" expanded="true" />
             <element signature="e#16273#16274#0" expanded="true" />
@@ -2482,6 +2571,17 @@
             <element signature="e#36373#36391#0" expanded="true" />
             <element signature="e#44127#44396#0" expanded="true" />
             <element signature="e#44377#44378#0" expanded="true" />
+=======
+            <element signature="e#12602#12603#0" expanded="true" />
+            <element signature="e#19987#20280#0" expanded="true" />
+            <element signature="e#20279#20280#0" expanded="true" />
+            <element signature="e#21426#21695#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21944#22217#0" expanded="true" />
+            <element signature="e#22216#22217#0" expanded="true" />
+            <element signature="e#42788#43057#0" expanded="true" />
+            <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -2490,7 +2590,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="188" column="49" selection-start-line="188" selection-start-column="49" selection-end-line="188" selection-end-column="49" />
-          <folding />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2544,6 +2653,7 @@
             <element signature="e#11544#11813#0" expanded="true" />
             <element signature="e#11794#11795#0" expanded="true" />
             <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#12584#12585#0" expanded="true" />
             <element signature="e#16005#16292#0" expanded="true" />
             <element signature="e#16273#16274#0" expanded="true" />
@@ -2574,6 +2684,17 @@
             <element signature="e#36373#36391#0" expanded="true" />
             <element signature="e#44127#44396#0" expanded="true" />
             <element signature="e#44377#44378#0" expanded="true" />
+=======
+            <element signature="e#12602#12603#0" expanded="true" />
+            <element signature="e#19987#20280#0" expanded="true" />
+            <element signature="e#20279#20280#0" expanded="true" />
+            <element signature="e#21426#21695#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21944#22217#0" expanded="true" />
+            <element signature="e#22216#22217#0" expanded="true" />
+            <element signature="e#42788#43057#0" expanded="true" />
+            <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -2582,7 +2703,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="76" column="9" selection-start-line="76" selection-start-column="9" selection-end-line="76" selection-end-column="9" />
-          <folding />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2628,6 +2758,7 @@
             <element signature="e#11544#11813#0" expanded="true" />
             <element signature="e#11794#11795#0" expanded="true" />
             <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#12584#12585#0" expanded="true" />
             <element signature="e#16005#16292#0" expanded="true" />
             <element signature="e#16273#16274#0" expanded="true" />
@@ -2658,6 +2789,17 @@
             <element signature="e#36373#36391#0" expanded="true" />
             <element signature="e#44127#44396#0" expanded="true" />
             <element signature="e#44377#44378#0" expanded="true" />
+=======
+            <element signature="e#12602#12603#0" expanded="true" />
+            <element signature="e#19987#20280#0" expanded="true" />
+            <element signature="e#20279#20280#0" expanded="true" />
+            <element signature="e#21426#21695#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21944#22217#0" expanded="true" />
+            <element signature="e#22216#22217#0" expanded="true" />
+            <element signature="e#42788#43057#0" expanded="true" />
+            <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -2666,7 +2808,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="104" column="17" selection-start-line="104" selection-start-column="17" selection-end-line="104" selection-end-column="17" />
-          <folding />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2693,6 +2844,7 @@
             <element signature="e#11544#11813#0" expanded="true" />
             <element signature="e#11794#11795#0" expanded="true" />
             <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#12584#12585#0" expanded="true" />
             <element signature="e#16005#16292#0" expanded="true" />
             <element signature="e#16273#16274#0" expanded="true" />
@@ -2723,6 +2875,17 @@
             <element signature="e#36373#36391#0" expanded="true" />
             <element signature="e#44127#44396#0" expanded="true" />
             <element signature="e#44377#44378#0" expanded="true" />
+=======
+            <element signature="e#12602#12603#0" expanded="true" />
+            <element signature="e#19987#20280#0" expanded="true" />
+            <element signature="e#20279#20280#0" expanded="true" />
+            <element signature="e#21426#21695#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21944#22217#0" expanded="true" />
+            <element signature="e#22216#22217#0" expanded="true" />
+            <element signature="e#42788#43057#0" expanded="true" />
+            <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>
@@ -2731,7 +2894,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="31" column="5" selection-start-line="31" selection-start-column="5" selection-end-line="31" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2869,19 +3041,24 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
       <provider editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="945" column="46" selection-start-line="945" selection-start-column="46" selection-end-line="945" selection-end-column="46" />
+=======
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="8" selection-start-line="38" selection-start-column="8" selection-end-line="38" selection-end-column="8" />
+>>>>>>> origin/master
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Player.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/Turn.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="34" column="24" selection-start-line="34" selection-start-column="24" selection-end-line="34" selection-end-column="24" />
           <folding />
@@ -2892,14 +3069,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
           <caret line="154" column="1" selection-start-line="154" selection-start-column="1" selection-end-line="154" selection-end-column="1" />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="97" selection-start-line="129" selection-start-column="97" selection-end-line="129" selection-end-column="97" />
+          <folding>
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#520#521#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#824#825#0" expanded="true" />
+            <element signature="e#865#866#0" expanded="true" />
+            <element signature="e#902#903#0" expanded="true" />
+            <element signature="e#1077#1078#0" expanded="true" />
+            <element signature="e#1130#1131#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="945" column="46" selection-start-line="945" selection-start-column="46" selection-end-line="945" selection-end-column="46" />
+>>>>>>> origin/master
           <folding />
         </state>
+      </provider>
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.14946619" vertical-offset="10413" max-vertical-offset="19380">
           <caret line="652" column="58" selection-start-line="652" selection-start-column="58" selection-end-line="652" selection-end-column="58" />
+=======
+        <state vertical-scroll-proportion="0.78205127">
+          <caret line="396" column="74" selection-start-line="396" selection-start-column="74" selection-end-line="396" selection-end-column="74" />
+>>>>>>> origin/master
           <folding>
             <element signature="e#8341#8379#0" expanded="true" />
             <element signature="e#9544#9777#0" expanded="true" />
@@ -2911,6 +3117,7 @@
             <element signature="e#11544#11813#0" expanded="true" />
             <element signature="e#11794#11795#0" expanded="true" />
             <element signature="e#12334#12603#0" expanded="true" />
+<<<<<<< HEAD
             <element signature="e#12584#12585#0" expanded="true" />
             <element signature="e#16005#16292#0" expanded="true" />
             <element signature="e#16273#16274#0" expanded="true" />
@@ -2941,6 +3148,17 @@
             <element signature="e#36373#36391#0" expanded="true" />
             <element signature="e#44127#44396#0" expanded="true" />
             <element signature="e#44377#44378#0" expanded="true" />
+=======
+            <element signature="e#12602#12603#0" expanded="true" />
+            <element signature="e#19987#20280#0" expanded="true" />
+            <element signature="e#20279#20280#0" expanded="true" />
+            <element signature="e#21426#21695#0" expanded="true" />
+            <element signature="e#21694#21695#0" expanded="true" />
+            <element signature="e#21944#22217#0" expanded="true" />
+            <element signature="e#22216#22217#0" expanded="true" />
+            <element signature="e#42788#43057#0" expanded="true" />
+            <element signature="e#43056#43057#0" expanded="true" />
+>>>>>>> origin/master
           </folding>
         </state>
       </provider>

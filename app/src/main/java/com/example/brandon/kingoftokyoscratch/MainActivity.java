@@ -652,9 +652,37 @@ public class MainActivity extends Activity
         switch (turnStatus) {
             case TurnBasedMatch.MATCH_TURN_STATUS_MY_TURN:
                 mTurnData = Turn.unpersist(mMatch.getData());
-                Player curPlayer = mTurnData.players.get(getCurP());
-                if(curPlayer.getInTokyo()) {
-                    curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
+                rollCounter = 0; //reset roll counter
+                Player curPlayer = getCurrentPlayer();
+                if(curPlayer.getInTokyo()) { //current player is tokyo player
+                    if (mTurnData.isTokyoAttacked()) { //special tokyo query turn
+                        //TODO show dialog
+                        //TODO move code to where dialog for answer yes activates ***
+                        curPlayer.setInTokyo(false);
+                        showSpinner();
+
+                        Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, mMatch.getMatchId(),
+                                mTurnData.persist(), mTurnData.getLastAttackerId()).setResultCallback(
+                                new ResultCallback<TurnBasedMultiplayer.UpdateMatchResult>() {
+                                    @Override
+                                    public void onResult(TurnBasedMultiplayer.UpdateMatchResult result) {
+                                        processResult(result);
+                                    }
+                                });
+
+                        mTurnData = null;
+                        //TODO to here ***
+                    } else { //starting a regular turn in tokyo
+                        curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
+                    }
+                }
+                else { //not in tokyo
+                    //if returning from special turn
+                    if (mTurnData.isTokyoAttacked() && mTurnData.getLastAttackerId().equals(getCurrentPlayer().getPid())) {
+                        if(mTurnData.isTokyoEmpty()){
+                            getCurrentPlayer().setInTokyo(true); //last player left tokyo if empty
+                        }
+                    }
                 }
                 setGameplayUI();
                 return;
@@ -925,9 +953,6 @@ public class MainActivity extends Activity
                 break;
         }
         rollCounter++;
-        if (rollCounter == 5){
-            rollCounter = 0;
-        }
     }
 
     public void resolveDice(){

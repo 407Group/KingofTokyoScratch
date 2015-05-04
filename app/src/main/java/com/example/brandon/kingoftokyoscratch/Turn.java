@@ -17,13 +17,9 @@ import android.util.Log;
  */
 public class Turn {
 
-    public static final String TAG = "EBTurn";
-
     ArrayList<Player> players;
-    //public Dice[] dice = new Dice[6];
-    int curP;   //index of current player
-    int tokyoP; //index of player in tokyo
-    boolean isTokyoHit; //True means tokyo was attacked this turn
+    boolean isTokyoAttacked;
+    String lastAttackerId;
 
     public Turn() {
         players = new ArrayList<>();
@@ -32,9 +28,34 @@ public class Turn {
     public void addPlayer(String playerName, String playerID) {
         Player tmpPlayer = new Player(playerName, playerID);
         players.add(tmpPlayer);
+        isTokyoAttacked = false;
+        lastAttackerId = "";
     }
 
-    // TODO Add an addplayer function to add to player arraylist
+    public boolean isTokyoAttacked() {
+        return isTokyoAttacked;
+    }
+
+    public String getLastAttackerId() {
+        return lastAttackerId;
+    }
+
+    public void setTokyoAttacked(boolean isTokyoAttacked) {
+        this.isTokyoAttacked = isTokyoAttacked;
+    }
+
+    public void setLastAttackerId(String lastAttackerId) {
+         this.lastAttackerId = lastAttackerId;
+    }
+
+    public boolean isTokyoEmpty(){
+        for (int i = 0; i < players.size(); i++){
+            if (players.get(i).getInTokyo()){
+                return false;
+            }
+        }
+        return true;
+    }
 
     // This is the byte array we will write out to the TBMP API.
     public byte[] persist() {
@@ -43,6 +64,7 @@ public class Turn {
         try {
             //retVal.put("data", data);
             //retVal.put("turnCounter", turnCounter);
+            retVal.put("isTokyoAttacked", isTokyoAttacked);
             for(int i = 0; i < players.size(); i++){
                 JSONObject tempVal = new JSONObject();
                 tempVal.put("name",players.get(i).getName());
@@ -61,7 +83,7 @@ public class Turn {
 
         String st = retVal.toString();
 
-        Log.d(TAG, "==== PERSISTING\n" + st);
+        Log.d("TURNDATA", "==== PERSISTING\n" + st);
 
         return st.getBytes(Charset.forName("UTF-8"));
     }
@@ -70,7 +92,7 @@ public class Turn {
     static public Turn unpersist(byte[] byteArray) {
 
         if (byteArray == null) {
-            Log.d(TAG, "Empty array---possible bug.");
+            Log.d("TURNDATA", "Empty array---possible bug.");
             return new Turn();
         }
 
@@ -82,7 +104,7 @@ public class Turn {
             return null;
         }
 
-        Log.d(TAG, "====UNPERSIST \n" + st);
+        Log.d("TURNDATA", "====UNPERSIST \n" + st);
 
         Turn retVal = new Turn();
 
@@ -95,8 +117,10 @@ public class Turn {
             if (obj.has("turnCounter")) {
                 retVal.turnCounter = obj.getInt("turnCounter");
             }*/
-            //Log.d("length",Integer.toString(obj.length()));
-            for (int i = 0; i < obj.length(); i++) { // TODO change bound
+            if (obj.has("isTokyoAttacked")) {
+                retVal.isTokyoAttacked = obj.getBoolean("isTokyoAttacked");
+            }
+            for (int i = 0; i < obj.length()-1; i++) { // TODO change bound
                 String playerNum = "Player" + Integer.toString(i);
                 if (obj.has(playerNum)) {
                     JSONObject playerObj = obj.getJSONObject(playerNum);
@@ -128,71 +152,4 @@ public class Turn {
 
         return retVal;
     }
-
-//    public void resolveDice(){
-//        int numHearts = 0;
-//        int numEnergy = 0;
-//        int numClaws = 0;
-//        int numOf1 = 0;
-//        int numOf2 = 0;
-//        int numOf3 = 0;
-//        int vp = 0;
-//
-//        for (int i = 0; i < 6; i++){
-//            switch (dice[i].getValue()) {
-//                case 0: numEnergy++;
-//                    break;
-//                case 1:  numOf1++;
-//                    break;
-//                case 2:  numOf2++;
-//                    break;
-//                case 3:  numOf3++;
-//                    break;
-//                case 4:  numClaws++;
-//                    break;
-//                case 5:  numHearts++;
-//                    break;
-//                default:
-//                    break;
-//            }
-//        }
-//
-//        if(numOf1 >= 3){
-//            numOf1 -= 3;
-//            vp = vp + 1 + numOf1;
-//        }
-//        if(numOf2 >= 3){
-//            numOf2 -= 3;
-//            vp = vp + 2 + numOf2;
-//        }
-//        if(numOf3 >= 3){
-//            numOf3 -= 3;
-//            vp = vp + 3 + numOf3;
-//        }
-//
-//        //update current player's stats
-//        //TODO: Remove and replace with update all stats
-//        players.get(curP).updateVictoryPoint(vp);
-//        players.get(curP).updateEnergy(numEnergy);
-//        if(curP != tokyoP) {
-//            players.get(curP).updateHealth(numHearts);
-//        }
-//
-//        //attack another player or take tokyo
-//        if(numClaws > 0){
-//            if(tokyoP < 0){
-//                tokyoP = curP;
-//            }
-//            else if(curP != tokyoP){ //current player not in tokyo
-//                players.get(tokyoP).takeDamage(numClaws);
-//            }
-//            else { //current player is in tokyo
-//                for(int i = 0; i < players.size(); i++){
-//                    if(tokyoP != i){
-//                        players.get(i).takeDamage(numClaws);
-//                    }
-//                }
-//            }
-//        }
-//    }
 }

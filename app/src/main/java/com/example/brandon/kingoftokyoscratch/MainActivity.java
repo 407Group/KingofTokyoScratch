@@ -654,9 +654,14 @@ public class MainActivity extends Activity
             case TurnBasedMatch.MATCH_TURN_STATUS_MY_TURN:
                 mTurnData = Turn.unpersist(mMatch.getData());
                 rollCounter = 0; //reset roll counter
+                ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll); //reset button text
                 Player curPlayer = getCurrentPlayer();
+                Log.d("xxx","Start of Turn");
+
                 if(curPlayer.getInTokyo()) { //current player is tokyo player
+                    Log.d("yyy","You are in Tokyo"+mTurnData.isTokyoAttacked());
                     if (mTurnData.isTokyoAttacked()) { //special tokyo query turn
+                        Log.d("zzz","Tokyo was Attacked");
                         //TODO show dialog
                         //TODO move code to where dialog for answer yes activates ***
                         curPlayer.setInTokyo(false);
@@ -672,17 +677,22 @@ public class MainActivity extends Activity
                                 });
 
                         mTurnData = null;
+
                         //TODO to here ***
+                        return;
                     } else { //starting a regular turn in tokyo
                         curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
                     }
                 }
                 else { //not in tokyo
+                    //TODO add more code for when turn returns to you
                     //if returning from special turn
                     if (mTurnData.isTokyoAttacked() && mTurnData.getLastAttackerId().equals(getCurrentPlayer().getPid())) {
+                        Log.d(TAG,"Is Tokyo Empty?  "+ mTurnData.isTokyoEmpty());
                         if(mTurnData.isTokyoEmpty()){
                             getCurrentPlayer().setInTokyo(true); //last player left tokyo if empty
                         }
+                        mTurnData.setTokyoAttacked(false);
                     }
                 }
                 setGameplayUI();
@@ -1010,26 +1020,29 @@ public class MainActivity extends Activity
                 mTurnData.players.get(curP).updateVictoryPoint(1);
                 Toast.makeText(this, "You have taken Tokyo!", TOAST_DELAY).show();
             }
-            else if(!mTurnData.players.get(curP).getInTokyo()){ //current player not in tokyo
-                //Player tokyoPlayer = mTurnData.players.get(tokyoID);
-                Player tokyoPlayer = getTokyoPlayer();
-                tokyoPlayer.takeDamage(numClaws);
-                if(tokyoPlayer.getHealth() == 0){ //tokyo player dies, take tokyo
-                    tokyoPlayer.setInTokyo(false);
-                    mTurnData.players.get(curP).setInTokyo(true);
-                }
-                else { //tokyo player still alive
-                    mTurnData.setTokyoAttacked(true);
-                    mTurnData.setLastAttackerId(mTurnData.players.get(curP).getPid());
-                }
-            }
-            else { //current player is in tokyo
+            else if(getCurrentPlayer().getInTokyo()){//current player is in tokyo
                 for(Player p : mTurnData.players){
                     if(!p.getInTokyo()){
                         p.takeDamage(numClaws);
                     }
                 }
             }
+            else { //current player not in tokyo and tokyo not empty
+                Player tokyoPlayer = getTokyoPlayer();
+                tokyoPlayer.takeDamage(numClaws);
+                if(tokyoPlayer.getHealth() == 0){ //tokyo player dies, take tokyo
+                    tokyoPlayer.setInTokyo(false);
+                    Log.d(TAG,"Tokyo player death");
+                    getCurrentPlayer().setInTokyo(true);
+                    //TODO add toast here
+                }
+                else { //tokyo player still alive
+                    mTurnData.setTokyoAttacked(true);
+                    Log.d(TAG,"Attack Tokyo");
+                    mTurnData.setLastAttackerId(mTurnData.players.get(curP).getPid());
+                }
+            }
+
         }
     }
 
@@ -1165,7 +1178,7 @@ public class MainActivity extends Activity
     public void sendTokyoRequest() {
         showSpinner();
 
-        String nextParticipantId = getNextParticipantId();
+        //String nextParticipantId = getNextParticipantId();
         String tokyoParticipantId = getTokyoPlayer().getPid();
         // Create the next turn
 

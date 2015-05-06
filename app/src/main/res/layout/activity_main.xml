@@ -1140,27 +1140,32 @@
             android:id="@+id/cardToDisplay"
             android:visibility="visible">
 
-            <ImageView
+            <TextView
                 android:layout_width="50dp"
                 android:layout_height="100dp"
-                android:id="@+id/imageView4"
+                android:id="@+id/card0"
                 android:background="#ff07cc00"
                 android:clickable="false"
-                android:layout_marginLeft="10dp" />
+                android:layout_marginLeft="10dp"
+                android:onClick="buyCard0" />
 
-            <ImageView
+            <TextView
                 android:layout_width="50dp"
                 android:layout_height="100dp"
-                android:id="@+id/imageView5"
+                android:id="@+id/card1"
                 android:background="#ffcc0c2a"
-                android:layout_marginLeft="10dp" />
+                android:clickable="false"
+                android:layout_marginLeft="10dp"
+                android:onClick="buyCard1" />
 
-            <ImageView
+            <TextView
                 android:layout_width="50dp"
                 android:layout_height="100dp"
-                android:id="@+id/imageView6"
+                android:id="@+id/card2"
                 android:background="#ff1924cc"
-                android:layout_marginLeft="10dp" />
+                android:clickable="false"
+                android:layout_marginLeft="10dp"
+                android:onClick="buyCard2" />
         </LinearLayout>
 
         <LinearLayout

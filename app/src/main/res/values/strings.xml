@@ -57,5 +57,8 @@
     <string name="outcomeEnergy">NRGY</string>
     <string name="outcomeHeal">HEAL</string>
     <string name="outcomeAttack">ATK!</string>
+    <string name="promtForKing">You were attacked, do you want to leave tokyo?</string>
+    <string name="stayString">Stay in Tokyo</string>
+    <string name="leaveTokyo">Leave Tokyo</string>
 
 </resources>

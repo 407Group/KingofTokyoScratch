@@ -352,6 +352,8 @@ public class MainActivity extends Activity
         findViewById(R.id.login_layout).setVisibility(View.GONE);
 
         if (isDoingTurn) {
+
+
             findViewById(R.id.matchup_layout).setVisibility(View.GONE);
             findViewById(R.id.tokyo).setVisibility(View.VISIBLE);
             if(mTurnData.players.size() == 2){
@@ -361,6 +363,22 @@ public class MainActivity extends Activity
             else if(mTurnData.players.size() == 3){
                 findViewById(R.id.p4Layout).setVisibility(View.GONE);
             }
+
+            if(mTurnData.isTokyoAttacked){
+                findViewById(R.id.diceLayouts).setVisibility(View.GONE);
+                findViewById(R.id.tokyoAndRoll).setVisibility(View.GONE);
+                findViewById(R.id.cardToDisplay).setVisibility(View.GONE);
+                findViewById(R.id.decisionLayout).setVisibility(View.VISIBLE);
+            }
+            else{
+                findViewById(R.id.decisionLayout).setVisibility(View.GONE);
+                findViewById(R.id.diceLayouts).setVisibility(View.VISIBLE);
+                findViewById(R.id.tokyoAndRoll).setVisibility(View.VISIBLE);
+                findViewById(R.id.cardToDisplay).setVisibility(View.VISIBLE);
+            }
+
+
+
             updateStats();
 //            findViewById(R.id.gameplay_layout).setVisibility(View.VISIBLE);
         } else {
@@ -383,7 +401,6 @@ public class MainActivity extends Activity
         findViewById(R.id.currentTokyo).setVisibility(View.INVISIBLE);
         Context context = getApplicationContext();
         ImageManager test = ImageManager.create(context);
-
 
 
         for(int i = 0; i < mTurnData.players.size(); i++){
@@ -663,23 +680,8 @@ public class MainActivity extends Activity
                     if (mTurnData.isTokyoAttacked()) { //special tokyo query turn
                         Log.d("zzz","Tokyo was Attacked");
                         //TODO show dialog
-                        //TODO move code to where dialog for answer yes activates ***
-                        curPlayer.setInTokyo(false);
-                        showSpinner();
 
-                        Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, mMatch.getMatchId(),
-                                mTurnData.persist(), mTurnData.getLastAttackerId()).setResultCallback(
-                                new ResultCallback<TurnBasedMultiplayer.UpdateMatchResult>() {
-                                    @Override
-                                    public void onResult(TurnBasedMultiplayer.UpdateMatchResult result) {
-                                        processResult(result);
-                                    }
-                                });
 
-                        mTurnData = null;
-
-                        //TODO to here ***
-                        return;
                     } else { //starting a regular turn in tokyo
                         curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
                     }
@@ -691,8 +693,12 @@ public class MainActivity extends Activity
                         Log.d(TAG,"Is Tokyo Empty?  "+ mTurnData.isTokyoEmpty());
                         if(mTurnData.isTokyoEmpty()){
                             getCurrentPlayer().setInTokyo(true); //last player left tokyo if empty
+                            //TODO Toasts you are now the king
+
                         }
                         mTurnData.setTokyoAttacked(false);
+                        rollCounter = 3;
+                        ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
                     }
                 }
                 setGameplayUI();
@@ -1186,6 +1192,37 @@ public class MainActivity extends Activity
 
         Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, mMatch.getMatchId(),
                 mTurnData.persist(), tokyoParticipantId).setResultCallback(
+                new ResultCallback<TurnBasedMultiplayer.UpdateMatchResult>() {
+                    @Override
+                    public void onResult(TurnBasedMultiplayer.UpdateMatchResult result) {
+                        processResult(result);
+                    }
+                });
+
+        mTurnData = null;
+    }
+
+    public void staying(View view){
+        showSpinner();
+
+        Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, mMatch.getMatchId(),
+                mTurnData.persist(), mTurnData.getLastAttackerId()).setResultCallback(
+                new ResultCallback<TurnBasedMultiplayer.UpdateMatchResult>() {
+                    @Override
+                    public void onResult(TurnBasedMultiplayer.UpdateMatchResult result) {
+                        processResult(result);
+                    }
+                });
+
+        mTurnData = null;
+
+    }
+    public void leaving(View view){
+        getCurrentPlayer().setInTokyo(false);
+        showSpinner();
+
+        Games.TurnBasedMultiplayer.takeTurn(mGoogleApiClient, mMatch.getMatchId(),
+                mTurnData.persist(), mTurnData.getLastAttackerId()).setResultCallback(
                 new ResultCallback<TurnBasedMultiplayer.UpdateMatchResult>() {
                     @Override
                     public void onResult(TurnBasedMultiplayer.UpdateMatchResult result) {

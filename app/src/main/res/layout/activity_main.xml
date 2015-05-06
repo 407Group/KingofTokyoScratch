@@ -713,7 +713,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/tokyo"
-        android:visibility="visible">
+        android:visibility="gone">
 
 
         <LinearLayout
@@ -971,7 +971,8 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:orientation="vertical"
-            android:padding="15dp">
+            android:padding="15dp"
+            android:visibility="visible">
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -1083,7 +1084,8 @@
             android:padding="15dp"
             android:weightSum="1"
             android:layout_toEndOf="@+id/diceLayouts"
-            android:gravity="bottom|right">
+            android:gravity="bottom|right"
+            android:visibility="visible">
 
             <LinearLayout
                 android:orientation="vertical"
@@ -1135,7 +1137,8 @@
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:padding="15dp"
-            android:id="@+id/cardToDisplay">
+            android:id="@+id/cardToDisplay"
+            android:visibility="visible">
 
             <ImageView
                 android:layout_width="50dp"
@@ -1158,6 +1161,48 @@
                 android:id="@+id/imageView6"
                 android:background="#ff1924cc"
                 android:layout_marginLeft="10dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@+id/playersLayout"
+            android:layout_below="@+id/playersLayout"
+            android:layout_alignParentStart="true"
+            android:id="@+id/decisionLayout"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:text="@string/promtForKing"
+                
+                android:textStyle="bold"
+                android:textSize="25sp" />
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical|center_horizontal">
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/stayString"
+                    android:onClick="staying"
+                    android:id="@+id/stay" />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/leaveTokyo"
+                    android:onClick="leaving"
+                    android:id="@+id/leave" />
+            </LinearLayout>
         </LinearLayout>
 
     </RelativeLayout>

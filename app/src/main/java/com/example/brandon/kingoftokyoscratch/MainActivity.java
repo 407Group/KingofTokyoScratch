@@ -673,16 +673,9 @@ public class MainActivity extends Activity
                 rollCounter = 0; //reset roll counter
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll); //reset button text
                 Player curPlayer = getCurrentPlayer();
-                Log.d("xxx","Start of Turn");
 
                 if(curPlayer.getInTokyo()) { //current player is tokyo player
-                    Log.d("yyy","You are in Tokyo"+mTurnData.isTokyoAttacked());
-                    if (mTurnData.isTokyoAttacked()) { //special tokyo query turn
-                        Log.d("zzz","Tokyo was Attacked");
-                        //TODO show dialog
-
-
-                    } else { //starting a regular turn in tokyo
+                    if (!mTurnData.isTokyoAttacked()) { //starting a regular turn in tokyo
                         curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
                     }
                 }
@@ -693,11 +686,11 @@ public class MainActivity extends Activity
                         Log.d(TAG,"Is Tokyo Empty?  "+ mTurnData.isTokyoEmpty());
                         if(mTurnData.isTokyoEmpty()){
                             getCurrentPlayer().setInTokyo(true); //last player left tokyo if empty
-                            //TODO Toasts you are now the king
-
+                            getCurrentPlayer().updateVictoryPoint(1); //Get 1 victory point for taking tokyo.
+                            Toast.makeText(this, "You have taken Tokyo. +1 VP.", TOAST_DELAY).show();
                         }
                         mTurnData.setTokyoAttacked(false);
-                        rollCounter = 3;
+                        rollCounter = 4;
                         ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
                     }
                 }
@@ -1231,5 +1224,97 @@ public class MainActivity extends Activity
                 });
 
         mTurnData = null;
+    }
+
+    public void buyCard0(View view){
+        buyCard(0);
+    }
+
+    public void buyCard1(View view){
+        buyCard(1);
+    }
+
+    public void buyCard2(View view){
+        buyCard(2);
+    }
+
+    public void buyCard(int num){
+        Player curPlayer = getCurrentPlayer();
+        Card curCard = mTurnData.displayPile[num];
+
+        //take cost from player's energy
+        curPlayer.updateEnergy(-1*curCard.getCost());
+
+        //update health if applicable
+        switch(curCard.getHeartFlag()){
+            case 0:
+                break;
+            case 1:
+                curPlayer.updateHealth(curCard.getHeartDelta());
+                break;
+            case 2:
+                for(Player p : mTurnData.players){
+                    if(!p.getPid().equals(curPlayer.getPid())) {
+                        p.updateHealth(curCard.getHeartDelta());
+                    }
+                }
+                break;
+            case 3:
+                for(Player p : mTurnData.players){
+                    p.updateHealth(curCard.getHeartDelta());
+                }
+                break;
+        }
+
+        //update victory points if applicable
+        switch(curCard.getVPFlag()){
+            case 0:
+                break;
+            case 1:
+                curPlayer.updateVictoryPoint(curCard.getVPDelta());
+                break;
+            case 2:
+                for(Player p : mTurnData.players){
+                    if(!p.getPid().equals(curPlayer.getPid())) {
+                        p.updateVictoryPoint(curCard.getVPDelta());
+                    }
+                }
+                break;
+            case 3:
+                for(Player p : mTurnData.players){
+                    p.updateVictoryPoint(curCard.getVPDelta());
+                }
+                break;
+        }
+
+        //update energy if applicable
+        switch(curCard.getEnergyFlag()){
+            case 0:
+                break;
+            case 1:
+                curPlayer.updateEnergy(curCard.getEnergyDelta());
+                break;
+            case 2:
+                for(Player p : mTurnData.players){
+                    if(!p.getPid().equals(curPlayer.getPid())) {
+                        p.updateEnergy(curCard.getEnergyDelta());
+                    }
+                }
+                break;
+            case 3:
+                for(Player p : mTurnData.players){
+                    p.updateEnergy(curCard.getEnergyDelta());
+                }
+                break;
+        }
+
+        //discards bought card and places new one out
+        mTurnData.replaceCard(num);
+    }
+
+    public void wipeCards(View view){
+        mTurnData.replaceCard(0);
+        mTurnData.replaceCard(1);
+        mTurnData.replaceCard(2);
     }
 }

@@ -120,20 +120,74 @@ public class Turn {
         JSONObject retVal = new JSONObject();
 
         try {
-            //retVal.put("data", data);
-            //retVal.put("turnCounter", turnCounter);
             retVal.put("isTokyoAttacked", isTokyoAttacked);
             retVal.put("lastAttackerId",lastAttackerId);
-            for(int i = 0; i < players.size(); i++){
-                JSONObject tempVal = new JSONObject();
-                tempVal.put("name",players.get(i).getName());
-                tempVal.put("pid",players.get(i).getPid());
-                tempVal.put("heart",players.get(i).getHealth());
-                tempVal.put("vp", players.get(i).getVictoryPoint());
-                tempVal.put("energy", players.get(i).getEnergy());
-                tempVal.put("inTokyo", players.get(i).getInTokyo());
-                retVal.put("Player"+Integer.toString(i),tempVal);
+
+            JSONObject drawPileVal = new JSONObject();
+            for(int i = 0; i < drawPile.size(); i++){
+                JSONObject drawVal = new JSONObject();
+                drawVal.put("id",drawPile.get(i).getId());
+                drawVal.put("cost",drawPile.get(i).getCost());
+                drawVal.put("name",drawPile.get(i).getName());
+                drawVal.put("description",drawPile.get(i).getDescription());
+                drawVal.put("heartFlag",drawPile.get(i).getHeartFlag());
+                drawVal.put("heartDelta",drawPile.get(i).getHeartDelta());
+                drawVal.put("VPflag",drawPile.get(i).getVPFlag());
+                drawVal.put("VPDelta",drawPile.get(i).getVPDelta());
+                drawVal.put("energyFlag",drawPile.get(i).getEnergyFlag());
+                drawVal.put("energyDelta",drawPile.get(i).getEnergyDelta());
+                drawPileVal.put("DrawCard"+Integer.toString(i),drawVal);
             }
+            retVal.put("DrawPile",drawPileVal);
+
+            JSONObject displayPileVal = new JSONObject();
+            for(int i = 0; i < 3; i++){ //displayPile
+                if(displayPile[i] != null) {
+                    JSONObject displayVal = new JSONObject();
+                    displayVal.put("id", displayPile[i].getId());
+                    displayVal.put("cost", displayPile[i].getCost());
+                    displayVal.put("name", displayPile[i].getName());
+                    displayVal.put("description", displayPile[i].getDescription());
+                    displayVal.put("heartFlag", displayPile[i].getHeartFlag());
+                    displayVal.put("heartDelta", displayPile[i].getHeartDelta());
+                    displayVal.put("VPflag", displayPile[i].getVPFlag());
+                    displayVal.put("VPDelta", displayPile[i].getVPDelta());
+                    displayVal.put("energyFlag", displayPile[i].getEnergyFlag());
+                    displayVal.put("energyDelta", displayPile[i].getEnergyDelta());
+                    displayPileVal.put("DisplayCard" + Integer.toString(i), displayVal);
+                }
+            }
+            retVal.put("DisplayPile",displayPileVal);
+
+            JSONObject discardPileVal = new JSONObject();
+            for(int i = 0; i < discardPile.size(); i++){
+                JSONObject discardVal = new JSONObject();
+                discardVal.put("id",discardPile.get(i).getId());
+                discardVal.put("cost",discardPile.get(i).getCost());
+                discardVal.put("name",discardPile.get(i).getName());
+                discardVal.put("description",discardPile.get(i).getDescription());
+                discardVal.put("heartFlag",discardPile.get(i).getHeartFlag());
+                discardVal.put("heartDelta",discardPile.get(i).getHeartDelta());
+                discardVal.put("VPflag",discardPile.get(i).getVPFlag());
+                discardVal.put("VPDelta",discardPile.get(i).getVPDelta());
+                discardVal.put("energyFlag",discardPile.get(i).getEnergyFlag());
+                discardVal.put("energyDelta",discardPile.get(i).getEnergyDelta());
+                discardPileVal.put("DiscardCard"+Integer.toString(i),discardVal);
+            }
+            retVal.put("DiscardPile",discardPileVal);
+
+            JSONObject playerPileVal = new JSONObject();
+            for(int i = 0; i < players.size(); i++){
+                JSONObject playerVal = new JSONObject();
+                playerVal.put("name",players.get(i).getName());
+                playerVal.put("pid",players.get(i).getPid());
+                playerVal.put("heart",players.get(i).getHealth());
+                playerVal.put("vp", players.get(i).getVictoryPoint());
+                playerVal.put("energy", players.get(i).getEnergy());
+                playerVal.put("inTokyo", players.get(i).getInTokyo());
+                playerPileVal.put("Player"+Integer.toString(i),playerVal);
+            }
+            retVal.put("Players",playerPileVal);
 
         } catch (JSONException e) {
             // TODO Auto-generated catch block
@@ -170,30 +224,6 @@ public class Turn {
         try {
             JSONObject obj = new JSONObject(st);
 
-            for (int i = 0; i < obj.length()-2; i++) { // TODO change bound
-                String playerNum = "Player" + Integer.toString(i);
-                if (obj.has(playerNum)) {
-                    JSONObject playerObj = obj.getJSONObject(playerNum);
-
-                    if (playerObj.has("name") && playerObj.has("pid")) {
-                        //retVal.players.get(i).setName(obj.getString("name"));
-                        retVal.addPlayer(playerObj.getString("name"),playerObj.getString("pid"));
-                    }
-                    if (playerObj.has("heart")) {
-                        //Log.d("heart",Integer.toString(obj.getInt("heart")));
-                        retVal.players.get(i).setHealth(playerObj.getInt("heart"));
-                    }
-                    if (playerObj.has("vp")) {
-                        retVal.players.get(i).setVictoryPoint(playerObj.getInt("vp"));
-                    }
-                    if (playerObj.has("energy")) {
-                        retVal.players.get(i).setEnergy(playerObj.getInt("energy"));
-                    }
-                    if (playerObj.has("inTokyo")) {
-                        retVal.players.get(i).setInTokyo(playerObj.getBoolean("inTokyo"));
-                    }
-                }
-            }
             if (obj.has("isTokyoAttacked")) {
                 retVal.setTokyoAttacked(obj.getBoolean("isTokyoAttacked"));
                 Log.d("TURNDATA","isTokyoAttacked = "+retVal.isTokyoAttacked());
@@ -202,12 +232,158 @@ public class Turn {
                 retVal.setLastAttackerId(obj.getString("lastAttackerId"));
             }
 
+            if(obj.has("DrawPile")) {
+                JSONObject drawPileObj = obj.getJSONObject("DrawPile");
+                for (int i = 0; i < drawPileObj.length(); i++) {
+                    String drawCardNum = "DrawCard" + Integer.toString(i);
+                    if (drawPileObj.has(drawCardNum)) {
+                        JSONObject drawCardObj = drawPileObj.getJSONObject(drawCardNum);
+                        retVal.drawPile.add(new Card());
+                        if (drawCardObj.has("id")) {
+                            retVal.drawPile.get(i).setId(drawCardObj.getInt("id"));
+                        }
+                        if (drawCardObj.has("cost")) {
+                            retVal.drawPile.get(i).setCost(drawCardObj.getInt("cost"));
+                        }
+                        if (drawCardObj.has("name")) {
+                            retVal.drawPile.get(i).setName(drawCardObj.getString("name"));
+                        }
+                        if (drawCardObj.has("description")) {
+                            retVal.drawPile.get(i).setDescription(drawCardObj.getString("description"));
+                        }
+                        if (drawCardObj.has("heartFlag")) {
+                            retVal.drawPile.get(i).setHeartFlag(drawCardObj.getInt("heartFlag"));
+                        }
+                        if (drawCardObj.has("heartDelta")) {
+                            retVal.drawPile.get(i).setHeartDelta(drawCardObj.getInt("heartDelta"));
+                        }
+                        if (drawCardObj.has("VPFlag")) {
+                            retVal.drawPile.get(i).setVPFlag(drawCardObj.getInt("VPFlag"));
+                        }
+                        if (drawCardObj.has("VPDelta")) {
+                            retVal.drawPile.get(i).setVPDelta(drawCardObj.getInt("VPDelta"));
+                        }
+                        if (drawCardObj.has("energyFlag")) {
+                            retVal.drawPile.get(i).setEnergyFlag(drawCardObj.getInt("energyFlag"));
+                        }
+                        if (drawCardObj.has("energyDelta")) {
+                            retVal.drawPile.get(i).setEnergyDelta(drawCardObj.getInt("energyDelta"));
+                        }
+                    }
+                }
+            }
+
+            if(obj.has("DisplayPile")) {
+                JSONObject displayPileObj = obj.getJSONObject("DisplayPile");
+                for (int i = 0; i < displayPileObj.length(); i++) {
+                    String displayCardNum = "DiscardCard" + Integer.toString(i);
+                    if (displayPileObj.has(displayCardNum)) {
+                        JSONObject displayCardObj = displayPileObj.getJSONObject(displayCardNum);
+                        if (displayCardObj.has("id")) {
+                            retVal.displayPile[i].setId(displayCardObj.getInt("id"));
+                        }
+                        if (displayCardObj.has("cost")) {
+                            retVal.displayPile[i].setCost(displayCardObj.getInt("cost"));
+                        }
+                        if (displayCardObj.has("name")) {
+                            retVal.displayPile[i].setName(displayCardObj.getString("name"));
+                        }
+                        if (displayCardObj.has("description")) {
+                            retVal.displayPile[i].setDescription(displayCardObj.getString("description"));
+                        }
+                        if (displayCardObj.has("heartFlag")) {
+                            retVal.displayPile[i].setHeartFlag(displayCardObj.getInt("heartFlag"));
+                        }
+                        if (displayCardObj.has("heartDelta")) {
+                            retVal.displayPile[i].setHeartDelta(displayCardObj.getInt("heartDelta"));
+                        }
+                        if (displayCardObj.has("VPFlag")) {
+                            retVal.displayPile[i].setVPFlag(displayCardObj.getInt("VPFlag"));
+                        }
+                        if (displayCardObj.has("VPDelta")) {
+                            retVal.displayPile[i].setVPDelta(displayCardObj.getInt("VPDelta"));
+                        }
+                        if (displayCardObj.has("energyFlag")) {
+                            retVal.displayPile[i].setEnergyFlag(displayCardObj.getInt("energyFlag"));
+                        }
+                        if (displayCardObj.has("energyDelta")) {
+                            retVal.displayPile[i].setEnergyDelta(displayCardObj.getInt("energyDelta"));
+                        }
+                    }
+                }
+            }
+
+            if(obj.has("DiscardPile")) {
+                JSONObject discardPileObj = obj.getJSONObject("DiscardPile");
+                for (int i = 0; i < discardPileObj.length(); i++) {
+                    String discardCardNum = "DiscardCard" + Integer.toString(i);
+                    if (discardPileObj.has(discardCardNum)) {
+                        JSONObject discardCardObj = discardPileObj.getJSONObject(discardCardNum);
+                        retVal.discardPile.add(new Card());
+                        if (discardCardObj.has("id")) {
+                            retVal.discardPile.get(i).setId(discardCardObj.getInt("id"));
+                        }
+                        if (discardCardObj.has("cost")) {
+                            retVal.discardPile.get(i).setCost(discardCardObj.getInt("cost"));
+                        }
+                        if (discardCardObj.has("name")) {
+                            retVal.discardPile.get(i).setName(discardCardObj.getString("name"));
+                        }
+                        if (discardCardObj.has("description")) {
+                            retVal.discardPile.get(i).setDescription(discardCardObj.getString("description"));
+                        }
+                        if (discardCardObj.has("heartFlag")) {
+                            retVal.discardPile.get(i).setHeartFlag(discardCardObj.getInt("heartFlag"));
+                        }
+                        if (discardCardObj.has("heartDelta")) {
+                            retVal.discardPile.get(i).setHeartDelta(discardCardObj.getInt("heartDelta"));
+                        }
+                        if (discardCardObj.has("VPFlag")) {
+                            retVal.discardPile.get(i).setVPFlag(discardCardObj.getInt("VPFlag"));
+                        }
+                        if (discardCardObj.has("VPDelta")) {
+                            retVal.discardPile.get(i).setVPDelta(discardCardObj.getInt("VPDelta"));
+                        }
+                        if (discardCardObj.has("energyFlag")) {
+                            retVal.discardPile.get(i).setEnergyFlag(discardCardObj.getInt("energyFlag"));
+                        }
+                        if (discardCardObj.has("energyDelta")) {
+                            retVal.discardPile.get(i).setEnergyDelta(discardCardObj.getInt("energyDelta"));
+                        }
+                    }
+                }
+            }
+
+            if(obj.has("Players")) {
+                JSONObject playersObj = obj.getJSONObject("Players");
+                for (int i = 0; i < playersObj.length(); i++) {
+                    String playerNum = "Player" + Integer.toString(i);
+                    if (playersObj.has(playerNum)) {
+                        JSONObject playerObj = playersObj.getJSONObject(playerNum);
+                        Log.d("TURN","Players has "+playerNum);
+                        if (playerObj.has("name") && playerObj.has("pid")) {
+                            retVal.addPlayer(playerObj.getString("name"), playerObj.getString("pid"));
+                        }
+                        if (playerObj.has("heart")) {
+                            retVal.players.get(i).setHealth(playerObj.getInt("heart"));
+                        }
+                        if (playerObj.has("vp")) {
+                            retVal.players.get(i).setVictoryPoint(playerObj.getInt("vp"));
+                        }
+                        if (playerObj.has("energy")) {
+                            retVal.players.get(i).setEnergy(playerObj.getInt("energy"));
+                        }
+                        if (playerObj.has("inTokyo")) {
+                            retVal.players.get(i).setInTokyo(playerObj.getBoolean("inTokyo"));
+                        }
+                    }
+                }
+            }
+
         } catch (JSONException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
-
-        Log.d("TURNDATA","Is Tokyo Attacked? "+retVal.isTokyoAttacked());
 
         return retVal;
     }

@@ -520,7 +520,7 @@ public class MainActivity extends Activity
                     .getStringArrayListExtra(Games.EXTRA_PLAYER_IDS);
 
             // get automatch criteria
-            Bundle autoMatchCriteria = null;
+            Bundle autoMatchCriteria;
 
             int minAutoMatchPlayers = data.getIntExtra(
                     Multiplayer.EXTRA_MIN_AUTOMATCH_PLAYERS, 0);
@@ -673,17 +673,20 @@ public class MainActivity extends Activity
                 rollCounter = 0; //reset roll counter
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll); //reset button text
                 Player curPlayer = getCurrentPlayer();
+                if(mTurnData.drawPile.size() == 0 && mTurnData.discardPile.size() == 0){
+                    mTurnData.setUpCards();
+                    updateCardText();
+                }
 
                 if(curPlayer.getInTokyo()) { //current player is tokyo player
                     if (!mTurnData.isTokyoAttacked()) { //starting a regular turn in tokyo
                         curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
+                        Toast.makeText(this, "+2 VP for remaining in Tokyo", TOAST_DELAY).show();
                     }
                 }
                 else { //not in tokyo
-                    //TODO add more code for when turn returns to you
                     //if returning from special turn
                     if (mTurnData.isTokyoAttacked() && mTurnData.getLastAttackerId().equals(getCurrentPlayer().getPid())) {
-                        Log.d(TAG,"Is Tokyo Empty?  "+ mTurnData.isTokyoEmpty());
                         if(mTurnData.isTokyoEmpty()){
                             getCurrentPlayer().setInTokyo(true); //last player left tokyo if empty
                             getCurrentPlayer().updateVictoryPoint(1); //Get 1 victory point for taking tokyo.
@@ -692,9 +695,7 @@ public class MainActivity extends Activity
                         mTurnData.setTokyoAttacked(false);
                         rollCounter = 4;
                         ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
-                        findViewById(R.id.card0).setClickable(true);
-                        findViewById(R.id.card0).setClickable(true);
-                        findViewById(R.id.card0).setClickable(true);
+                        turnCardsClickable();
                     }
                 }
                 setGameplayUI();
@@ -940,17 +941,15 @@ public class MainActivity extends Activity
                 rollDice();
                 resolveDice();
                 updateStats();
-                resetKeptDice();
+                //resetKeptDice();
+                keepAllDice();
                 if(mTurnData.isTokyoAttacked()){
                     ((Button)findViewById(R.id.buttonRoll)).setText(R.string.askTokyo);
                 }
                 else{
                     ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
                     rollCounter++;//skip case 3 and go to next one
-                    //clickable
-                    findViewById(R.id.card0).setClickable(true);
-                    findViewById(R.id.card1).setClickable(true);
-                    findViewById(R.id.card2).setClickable(true);
+                    turnCardsClickable();
                 }
                 break;
             case 3:
@@ -958,9 +957,7 @@ public class MainActivity extends Activity
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.finishTurn);
                 break;
             case 4:
-                findViewById(R.id.card0).setClickable(false);
-                findViewById(R.id.card1).setClickable(false);
-                findViewById(R.id.card2).setClickable(false);
+                turnCardsUnclickable();
                 resetKeptDice();
                 for (int i = 0; i< 6; i++){
                     diceText[i].setText("");
@@ -1039,7 +1036,7 @@ public class MainActivity extends Activity
                     tokyoPlayer.setInTokyo(false);
                     Log.d(TAG,"Tokyo player death");
                     getCurrentPlayer().setInTokyo(true);
-                    //TODO add toast here
+                    Toast.makeText(this, "You have taken Tokyo. +1 VP.", TOAST_DELAY).show();
                 }
                 else { //tokyo player still alive
                     mTurnData.setTokyoAttacked(true);
@@ -1080,31 +1077,40 @@ public class MainActivity extends Activity
         }
     }
 
+    public void updateCardText(){
+        Card tmpCard = mTurnData.displayPile[0];
+        ((TextView)findViewById(R.id.card0)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
+        tmpCard = mTurnData.displayPile[1];
+        ((TextView)findViewById(R.id.card1)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
+        tmpCard = mTurnData.displayPile[2];
+        ((TextView)findViewById(R.id.card2)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
+    }
+
     public void keepDie0(View view){
-        keepDie(view,0);
+        keepDie(0);
     }
 
     public void keepDie1(View view){
-        keepDie(view,1);
+        keepDie(1);
     }
 
     public void keepDie2(View view){
-        keepDie(view,2);
+        keepDie(2);
     }
 
     public void keepDie3(View view){
-        keepDie(view,3);
+        keepDie(3);
     }
 
     public void keepDie4(View view){
-        keepDie(view,4);
+        keepDie(4);
     }
 
     public void keepDie5(View view){
-        keepDie(view,5);
+        keepDie(5);
     }
 
-    public void keepDie(View view, int d){
+    public void keepDie(int d){
         if (rollCounter > 0 && rollCounter < 3) {
             if (keptDice[d]) {
                 keptDice[d] = false;
@@ -1124,7 +1130,13 @@ public class MainActivity extends Activity
         for (int i = 0; i< 6; i++){
             keptDice[i] = false;
             diceText[i].setBackgroundColor(Color.WHITE);
+        }
+    }
 
+    public void keepAllDice(){
+        for (int i = 0; i< 6; i++){
+            keptDice[i] = true;
+            diceText[i].setBackgroundColor(Color.YELLOW);
         }
     }
 
@@ -1314,8 +1326,13 @@ public class MainActivity extends Activity
                     break;
             }
 
+            Toast.makeText(this, curCard.getDescription(), TOAST_DELAY).show();
+
             //discards bought card and places new one out
             mTurnData.replaceCard(num);
+
+            updateStats();
+            updateCardText();
         }
         else { //too poor to buy card
             Toast.makeText(this, "You don't have enough Energy to buy this card.", TOAST_DELAY).show();
@@ -1326,5 +1343,17 @@ public class MainActivity extends Activity
         mTurnData.replaceCard(0);
         mTurnData.replaceCard(1);
         mTurnData.replaceCard(2);
+    }
+
+    public void turnCardsClickable(){
+        findViewById(R.id.card0).setClickable(true);
+        findViewById(R.id.card1).setClickable(true);
+        findViewById(R.id.card2).setClickable(true);
+    }
+
+    public void turnCardsUnclickable(){
+        findViewById(R.id.card0).setClickable(false);
+        findViewById(R.id.card1).setClickable(false);
+        findViewById(R.id.card2).setClickable(false);
     }
 }

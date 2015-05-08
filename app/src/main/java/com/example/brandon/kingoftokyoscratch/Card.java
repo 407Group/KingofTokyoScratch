@@ -24,6 +24,8 @@ public class Card {
     int energyFlag; //flag for energy
     int energyDelta; //change in energy, negative value for losing energy
 
+    public Card(){}
+
     public Card(int id, int cost, String description, String name) {
         this.id = id;
         this.cost = cost;
@@ -82,6 +84,10 @@ public class Card {
 
     public int getEnergyDelta() {
         return energyDelta;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public void setCost(int cost) {

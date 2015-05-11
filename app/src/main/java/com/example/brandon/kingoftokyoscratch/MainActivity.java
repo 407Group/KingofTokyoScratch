@@ -699,6 +699,7 @@ public class MainActivity extends Activity
                     if (!mTurnData.isTokyoAttacked()) { //starting a regular turn in tokyo
                         curPlayer.updateVictoryPoint(2); //2 points if still in Tokyo
                         Toast.makeText(this, "+2 VP for remaining in Tokyo", TOAST_DELAY).show();
+                        Games.Achievements.unlock(mGoogleApiClient, "CgkImsu-1fcFEAIQDQ");
                     }
                 }
                 else { //not in tokyo
@@ -981,6 +982,7 @@ public class MainActivity extends Activity
                 }
                 if(getCurrentPlayer().getVictoryPoint() >= VIC_GOAL){
                     gameOver = true;
+                    Games.Achievements.unlock(mGoogleApiClient, "CgkImsu-1fcFEAIQDw");
                     setViewVisibility();
                     return;
                 }
@@ -1017,6 +1019,16 @@ public class MainActivity extends Activity
                 default:
                     break;
             }
+        }
+
+        if(numOf3 >= 6){
+            Games.Achievements.unlock(mGoogleApiClient, "CgkImsu-1fcFEAIQDg");
+        }
+        if(numHearts >= 6){
+            Games.Achievements.unlock(mGoogleApiClient, "CgkImsu-1fcFEAIQEQ");
+        }
+        if(numEnergy >= 6){
+            Games.Achievements.unlock(mGoogleApiClient, "CgkImsu-1fcFEAIQEA");
         }
 
         if(numOf1 >= 3){

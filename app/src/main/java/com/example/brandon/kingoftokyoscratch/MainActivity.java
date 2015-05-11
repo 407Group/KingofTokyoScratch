@@ -35,24 +35,6 @@ import com.google.android.gms.games.multiplayer.Multiplayer;
 import com.google.android.gms.plus.Plus;
 import com.google.example.games.basegameutils.BaseGameUtils;
 
-
-/**
- * TBMPSkeleton: A minimalistic "game" that shows turn-based
- * multiplayer features for Play Games Services.  In this game, you
- * can invite a variable number of players and take turns editing a
- * shared state, which consists of single string.  You can also select
- * automatch players; all known players play before automatch slots
- * are filled.
- *
- * INSTRUCTIONS: To run this sample, please set up
- * a project in the Developer Console. Then, place your app ID on
- * res/values/ids.xml. Also, change the package name to the package name you
- * used to create the client ID in Developer Console. Make sure you sign the
- * APK with the certificate whose fingerprint you entered in Developer Console
- * when creating your Client Id.
- *
- * @author Wolff (wolff@google.com), 2013
- */
 public class MainActivity extends Activity
         implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
         OnInvitationReceivedListener, OnTurnBasedMatchUpdateReceivedListener,
@@ -351,7 +333,6 @@ public class MainActivity extends Activity
             return;
         }
 
-
         ((TextView) findViewById(R.id.name_field)).setText(Games.Players.getCurrentPlayer(
                 mGoogleApiClient).getDisplayName());
         findViewById(R.id.login_layout).setVisibility(View.GONE);
@@ -359,7 +340,7 @@ public class MainActivity extends Activity
         if (isDoingTurn) {
 
             if(gameOver){
-                Toast.makeText(this, "num players = "+mTurnData.players.size(), TOAST_DELAY).show();
+                //Toast.makeText(this, "num players = "+mTurnData.players.size(), TOAST_DELAY).show();
                 findViewById(R.id.tokyo).setVisibility(View.GONE);
                 findViewById(R.id.matchup_layout).setVisibility(View.GONE);
                 findViewById(R.id.endGame).setVisibility(View.VISIBLE);
@@ -371,7 +352,6 @@ public class MainActivity extends Activity
                         temp = mTurnData.players.get(i);
                     }
                 }
-
                 ((TextView)findViewById(R.id.winnerName)).setText(temp.getName());
                 Context context = getApplicationContext();
                 ImageManager test = ImageManager.create(context);
@@ -591,10 +571,8 @@ public class MainActivity extends Activity
         String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
         String myParticipantId = mMatch.getParticipantId(playerId);
 
-        Log.d("parts", Integer.toString(mMatch.getParticipants().size()));
         for(Participant p : mMatch.getParticipants()){
-            mTurnData.addPlayer(p.getDisplayName(),p.getParticipantId());
-            Log.d("PartName", p.getDisplayName());
+            mTurnData.addPlayer(p.getDisplayName(), p.getParticipantId());
         }
 
         showSpinner();
@@ -706,9 +684,10 @@ public class MainActivity extends Activity
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll); //reset button text
                 Player curPlayer = getCurrentPlayer();
                 if(mTurnData.drawPile.size() == 0 && mTurnData.discardPile.size() == 0){
-                    mTurnData.setUpCards();
-                    updateCardText();
+                    //mTurnData.setUpCards();
+                    //updateCardText();
                 }
+                updateCardText();
 
                 if(curPlayer.getInTokyo()) { //current player is tokyo player
                     if (!mTurnData.isTokyoAttacked()) { //starting a regular turn in tokyo
@@ -1072,13 +1051,11 @@ public class MainActivity extends Activity
                 tokyoPlayer.takeDamage(numClaws);
                 if(tokyoPlayer.getHealth() == 0){ //tokyo player dies, take tokyo
                     tokyoPlayer.setInTokyo(false);
-                    Log.d(TAG,"Tokyo player death");
                     getCurrentPlayer().setInTokyo(true);
                     Toast.makeText(this, "You have taken Tokyo. +1 VP.", TOAST_DELAY).show();
                 }
                 else { //tokyo player still alive
                     mTurnData.setTokyoAttacked(true);
-                    Log.d(TAG,"Attack Tokyo");
                     mTurnData.setLastAttackerId(mTurnData.players.get(curP).getPid());
                 }
             }
@@ -1116,12 +1093,16 @@ public class MainActivity extends Activity
     }
 
     public void updateCardText(){
-        Card tmpCard = mTurnData.displayPile[0];
-        ((TextView)findViewById(R.id.card0)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
-        tmpCard = mTurnData.displayPile[1];
-        ((TextView)findViewById(R.id.card1)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
-        tmpCard = mTurnData.displayPile[2];
-        ((TextView)findViewById(R.id.card2)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
+//        Card tmpCard = mTurnData.displayPile[0];
+//        ((TextView)findViewById(R.id.card0)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
+//        tmpCard = mTurnData.displayPile[1];
+//        ((TextView)findViewById(R.id.card1)).setText("Cost: "+tmpCard.getCost()+"\n"+tmpCard.getDescription());
+//        tmpCard = mTurnData.displayPile[2];
+//        ((TextView)findViewById(R.id.card2)).setText("Cost: " + tmpCard.getCost() + "\n" + tmpCard.getDescription());
+
+        ((TextView)findViewById(R.id.card0)).setText("Cost: 3\n+1 VP\nor\n+2 VP");
+        ((TextView)findViewById(R.id.card1)).setText("Cost: 5\n+3 VP\nor\n+4 VP");
+        ((TextView)findViewById(R.id.card2)).setText("Cost: 7\n+5 VP\nor\n+6 VP");
     }
 
     public void keepDie0(View view){
@@ -1283,21 +1264,85 @@ public class MainActivity extends Activity
     }
 
     public void buyCard0(View view){
-        buyCard(0);
+        int cost = 3;
+        Player curPlayer = getCurrentPlayer();
+        if(curPlayer.getEnergy() >= cost) {
+            //take cost from player's energy
+            curPlayer.updateEnergy(-1*cost);
+
+            //pick random number between 1 and 2
+            Random rn = new Random();
+            int randomVP = rn.nextInt(2) + 1;
+
+            //update victory points
+            curPlayer.updateVictoryPoint(randomVP);
+
+            Toast.makeText(this, "+"+randomVP+" VP", TOAST_DELAY).show();
+        }
+        else { //too poor to buy card
+            Toast.makeText(this, "You don't have enough Energy to buy this card.", TOAST_DELAY).show();
+        }
+
+        updateStats();
+
+        //buyCard(0);
     }
 
     public void buyCard1(View view){
-        buyCard(1);
+        int cost = 5;
+        Player curPlayer = getCurrentPlayer();
+        if(curPlayer.getEnergy() >= cost) {
+            //take cost from player's energy
+            curPlayer.updateEnergy(-1*cost);
+
+            //pick random number between 3 and 4
+            Random rn = new Random();
+            int randomVP = rn.nextInt(2) + 3;
+
+            //update victory points
+            curPlayer.updateVictoryPoint(randomVP);
+
+            Toast.makeText(this, "+"+randomVP+" VP", TOAST_DELAY).show();
+        }
+        else { //too poor to buy card
+            Toast.makeText(this, "You don't have enough Energy to buy this card.", TOAST_DELAY).show();
+        }
+
+        updateStats();
+
+        //buyCard(1);
     }
 
     public void buyCard2(View view){
-        buyCard(2);
+        int cost = 7;
+        Player curPlayer = getCurrentPlayer();
+        if(curPlayer.getEnergy() >= cost) {
+            //take cost from player's energy
+            curPlayer.updateEnergy(-1*cost);
+
+            //pick random number between 5 and 6
+            Random rn = new Random();
+            int randomVP = rn.nextInt(2) + 5;
+
+            //update victory points
+            curPlayer.updateVictoryPoint(randomVP);
+
+            Toast.makeText(this, "+"+randomVP+" VP", TOAST_DELAY).show();
+        }
+        else { //too poor to buy card
+            Toast.makeText(this, "You don't have enough Energy to buy this card.", TOAST_DELAY).show();
+        }
+
+        updateStats();
+
+        //buyCard(2);
     }
 
     public void buyCard(int num){
         Player curPlayer = getCurrentPlayer();
         Card curCard = mTurnData.displayPile[num];
         if(curPlayer.getEnergy() >= curCard.getCost()) {
+
             //take cost from player's energy
             curPlayer.updateEnergy(-1 * curCard.getCost());
 

@@ -359,6 +359,7 @@ public class MainActivity extends Activity
         if (isDoingTurn) {
 
             if(gameOver){
+                Toast.makeText(this, "num players = "+mTurnData.players.size(), TOAST_DELAY).show();
                 findViewById(R.id.tokyo).setVisibility(View.GONE);
                 findViewById(R.id.matchup_layout).setVisibility(View.GONE);
                 findViewById(R.id.endGame).setVisibility(View.VISIBLE);
@@ -366,7 +367,7 @@ public class MainActivity extends Activity
                 findViewById(R.id.gameOverString).setVisibility(View.VISIBLE);
                 Player temp = getCurrentPlayer();
                 for(int i = 0; i < mTurnData.players.size();i++){
-                    if(mTurnData.players.get(i).getVictoryPoint() > temp.getVictoryPoint()){
+                    if(mTurnData.players.get(i).getVictoryPoint() >= temp.getVictoryPoint()){
                         temp = mTurnData.players.get(i);
                     }
                 }

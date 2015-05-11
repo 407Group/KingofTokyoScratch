@@ -97,6 +97,8 @@ public class MainActivity extends Activity
 
     // Should I be showing the turn API?
     public boolean isDoingTurn = false;
+    private boolean gameOver;
+    final static int VIC_GOAL = 5;
 
     // This is the current match we're in; null if not loaded
     public TurnBasedMatch mMatch;
@@ -133,6 +135,7 @@ public class MainActivity extends Activity
             dice[d] = -1;
             keptDice[d] = false;
         }
+        gameOver = false;
         diceText[0] = (TextView)findViewById(R.id.die0);
         diceText[1] = (TextView)findViewById(R.id.die1);
         diceText[2] = (TextView)findViewById(R.id.die2);
@@ -301,7 +304,9 @@ public class MainActivity extends Activity
                     }
                 });
 
+        //Games.TurnBasedMultiplayer.dismissMatch(mGoogleApiClient, mMatch.getMatchId());
         isDoingTurn = false;
+        gameOver = false;
         setViewVisibility();
     }
 
@@ -353,7 +358,29 @@ public class MainActivity extends Activity
 
         if (isDoingTurn) {
 
+            if(gameOver){
+                findViewById(R.id.tokyo).setVisibility(View.GONE);
+                findViewById(R.id.matchup_layout).setVisibility(View.GONE);
+                findViewById(R.id.endGame).setVisibility(View.VISIBLE);
+                ((TextView)findViewById(R.id.gameOverString)).setText(R.string.gameOverString);
+                findViewById(R.id.gameOverString).setVisibility(View.VISIBLE);
+                Player temp = getCurrentPlayer();
+                for(int i = 0; i < mTurnData.players.size();i++){
+                    if(mTurnData.players.get(i).getVictoryPoint() > temp.getVictoryPoint()){
+                        temp = mTurnData.players.get(i);
+                    }
+                }
 
+                ((TextView)findViewById(R.id.winnerName)).setText(temp.getName());
+                Context context = getApplicationContext();
+                ImageManager test = ImageManager.create(context);
+                test.loadImage((ImageView) findViewById(R.id.winnerImage), mMatch.getParticipant(temp.getPid()).getHiResImageUri());
+                findViewById(R.id.winnerImage).setVisibility(View.VISIBLE);
+                findViewById(R.id.endGame).setVisibility(View.VISIBLE);
+                findViewById(R.id.gameOverLayout).setVisibility(View.VISIBLE);
+                return;
+            }
+            findViewById(R.id.gameOverLayout).setVisibility(View.GONE);
             findViewById(R.id.matchup_layout).setVisibility(View.GONE);
             findViewById(R.id.tokyo).setVisibility(View.VISIBLE);
             if(mTurnData.players.size() == 2){
@@ -377,14 +404,12 @@ public class MainActivity extends Activity
                 findViewById(R.id.cardToDisplay).setVisibility(View.VISIBLE);
             }
 
-
-
             updateStats();
 //            findViewById(R.id.gameplay_layout).setVisibility(View.VISIBLE);
         } else {
             findViewById(R.id.matchup_layout).setVisibility(View.VISIBLE);
             findViewById(R.id.tokyo).setVisibility(View.GONE);
-
+            findViewById(R.id.gameOverLayout).setVisibility(View.GONE);
 //            findViewById(R.id.gameplay_layout).setVisibility(View.GONE);
         }
     }
@@ -565,7 +590,7 @@ public class MainActivity extends Activity
         String playerId = Games.Players.getCurrentPlayerId(mGoogleApiClient);
         String myParticipantId = mMatch.getParticipantId(playerId);
 
-        Log.d("parts",Integer.toString(mMatch.getParticipants().size()));
+        Log.d("parts", Integer.toString(mMatch.getParticipants().size()));
         for(Participant p : mMatch.getParticipants()){
             mTurnData.addPlayer(p.getDisplayName(),p.getParticipantId());
             Log.d("PartName", p.getDisplayName());
@@ -653,23 +678,29 @@ public class MainActivity extends Activity
                         "We're still waiting for an automatch partner.");
                 return;
             case TurnBasedMatch.MATCH_STATUS_COMPLETE:
-                if (turnStatus == TurnBasedMatch.MATCH_TURN_STATUS_COMPLETE) {
-                    showWarning(
-                            "Complete!",
-                            "This game is over; someone finished it, and so did you!  There is nothing to be done.");
-                    break;
-                }
-
-                // Note that in this state, you must still call "Finish" yourself,
-                // so we allow this to continue.
-                showWarning("Complete!",
-                        "This game is over; someone finished it!  You can only finish it now.");
+                gameOver = true;
+//                if (turnStatus == TurnBasedMatch.MATCH_TURN_STATUS_COMPLETE) {
+//                    showWarning(
+//                            "Complete!",
+//                            "This game is over; someone finished it, and so did you!  There is nothing to be done.");
+//                    break;
+//                }
+//
+//                // Note that in this state, you must still call "Finish" yourself,
+//                // so we allow this to continue.
+//                showWarning("Complete!",
+//                        "This game is over; someone finished it!  You can only finish it now.");
         }
 
         // OK, it's active. Check on turn status.
         switch (turnStatus) {
             case TurnBasedMatch.MATCH_TURN_STATUS_MY_TURN:
                 mTurnData = Turn.unpersist(mMatch.getData());
+                if(gameOver) {
+                    isDoingTurn = true;
+                    setViewVisibility();
+                    return;
+                }
                 rollCounter = 0; //reset roll counter
                 ((Button)findViewById(R.id.buttonRoll)).setText(R.string.firstRoll); //reset button text
                 Player curPlayer = getCurrentPlayer();
@@ -962,6 +993,12 @@ public class MainActivity extends Activity
                 for (int i = 0; i< 6; i++){
                     diceText[i].setText("");
                 }
+                if(getCurrentPlayer().getVictoryPoint() >= VIC_GOAL){
+                    gameOver = true;
+                    setViewVisibility();
+                    return;
+                }
+
                 onDoneClicked(view);
                 break;
         }

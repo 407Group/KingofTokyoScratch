@@ -80,7 +80,7 @@ public class MainActivity extends Activity
     // Should I be showing the turn API?
     public boolean isDoingTurn = false;
     private boolean gameOver;
-    final static int VIC_GOAL = 5;
+    final static int VIC_GOAL = 10;
 
     // This is the current match we're in; null if not loaded
     public TurnBasedMatch mMatch;
@@ -286,7 +286,7 @@ public class MainActivity extends Activity
                     }
                 });
 
-        //Games.TurnBasedMultiplayer.dismissMatch(mGoogleApiClient, mMatch.getMatchId());
+        Games.TurnBasedMultiplayer.dismissMatch(mGoogleApiClient, mMatch.getMatchId());
         isDoingTurn = false;
         gameOver = false;
         setViewVisibility();
@@ -365,11 +365,17 @@ public class MainActivity extends Activity
             findViewById(R.id.matchup_layout).setVisibility(View.GONE);
             findViewById(R.id.tokyo).setVisibility(View.VISIBLE);
             if(mTurnData.players.size() == 2){
+
                 findViewById(R.id.p3Layout).setVisibility(View.GONE);
                 findViewById(R.id.p4Layout).setVisibility(View.GONE);
             }
             else if(mTurnData.players.size() == 3){
+                findViewById(R.id.p3Layout).setVisibility(View.VISIBLE);
                 findViewById(R.id.p4Layout).setVisibility(View.GONE);
+            }
+            else if(mTurnData.players.size() == 4){
+                findViewById(R.id.p3Layout).setVisibility(View.VISIBLE);
+                findViewById(R.id.p4Layout).setVisibility(View.VISIBLE);
             }
 
             if(mTurnData.isTokyoAttacked){

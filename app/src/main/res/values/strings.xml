@@ -58,7 +58,7 @@
     <string name="outcomeHeal">HEAL</string>
     <string name="outcomeAttack">ATK!</string>
     <string name="askTokyo">Ask Tokyo</string>
-    <string name="promtForKing">You were attacked, do you want to leave tokyo?</string>
+    <string name="promtForKing">         You have been attacked! \nDo you want to leave tokyo?</string>
     <string name="stayString">Stay in Tokyo</string>
     <string name="leaveTokyo">Leave Tokyo</string>
     <string name="gameOverString">The game ended and the victor is....</string>

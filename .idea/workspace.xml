@@ -137,8 +137,8 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37142858">
-              <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+            <state vertical-scroll-proportion="0.4857143">
+              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#11749#12018#0" expanded="true" />
@@ -1829,7 +1829,7 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="597" />
+    <option name="x" value="409" />
     <option name="y" value="23" />
     <option name="width" value="1078" />
     <option name="height" value="1001" />
@@ -2238,11 +2238,17 @@
       <option name="project" value="LOCAL" />
       <updated>1431370925251</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Game for presentation">
+      <created>1431373789884</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1431373789884</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="597" y="23" width="1078" height="1001" extended-state="6" />
+    <frame x="409" y="23" width="1078" height="1001" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2735,8 +2741,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/brandon/kingoftokyoscratch/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37142858">
-          <caret line="74" column="26" selection-start-line="74" selection-start-column="26" selection-end-line="74" selection-end-column="26" />
+        <state vertical-scroll-proportion="0.4857143">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#11749#12018#0" expanded="true" />
